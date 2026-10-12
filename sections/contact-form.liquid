@@ -1,0 +1,27 @@
+<div class="page-wrap" style="max-width:560px;">
+  <h1>{{ section.settings.heading | default: page.title }}</h1>
+  <p class="t-small" style="color:var(--sd-text-muted);margin-bottom:22px;">{{ section.settings.sub }}</p>
+  {%- form 'contact' -%}
+    {{ form.errors | default_errors }}
+    {%- if form.posted_successfully? -%}
+      <p class="form-success" style="color:#2e7d43;">Thanks — we'll get back to you soon.</p>
+    {%- endif -%}
+    <div style="display:flex;flex-direction:column;gap:14px;margin-top:18px;">
+      <input type="text" name="contact[name]" placeholder="{{ 'templates.contact.form.name' | t }}" required style="height:46px;border:1px solid var(--sd-text);padding:0 14px;">
+      <input type="email" name="contact[email]" placeholder="{{ 'templates.contact.form.email' | t }}" required style="height:46px;border:1px solid var(--sd-text);padding:0 14px;">
+      <textarea name="contact[body]" rows="6" placeholder="{{ 'templates.contact.form.message' | t }}" required style="border:1px solid var(--sd-text);padding:14px;"></textarea>
+      <button class="btn btn--full" type="submit">{{ 'templates.contact.form.send' | t }}</button>
+    </div>
+  {%- endform -%}
+</div>
+
+{% schema %}
+{
+  "name": "Contact form",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Contact us" },
+    { "type": "text", "id": "sub", "label": "Sub text", "default": "Questions about orders, sizing, or collabs — drop us a line." }
+  ],
+  "presets": [{ "name": "Contact form" }]
+}
+{% endschema %}

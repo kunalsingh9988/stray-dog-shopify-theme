@@ -1,0 +1,41 @@
+<div class="values">
+  {%- for block in section.blocks -%}
+    <div class="value-card" {{ block.shopify_attributes }}>
+      <h3>{{ block.settings.heading }}</h3>
+      <p>{{ block.settings.text }}</p>
+      {%- if block.settings.link_label != blank -%}
+        <a class="t-link link-underline" href="{{ block.settings.link_url | default: '#' }}">{{ block.settings.link_label }}</a>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Values row",
+  "max_blocks": 4,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "textarea", "id": "text", "label": "Text" },
+        { "type": "text", "id": "link_label", "label": "Link label" },
+        { "type": "url", "id": "link_url", "label": "Link URL" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Values row",
+      "blocks": [
+        { "type": "value", "settings": { "heading": "Rescue first", "text": "A portion of every sale is donated to dog rescues and shelters." } },
+        { "type": "value", "settings": { "heading": "Made for the water", "text": "Built by a crew of friends who live on boats, boards, and beaches." } },
+        { "type": "value", "settings": { "heading": "The pack", "text": "Real people, real dogs, real trips — our community wears the brand." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

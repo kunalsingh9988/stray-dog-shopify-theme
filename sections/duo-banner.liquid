@@ -1,0 +1,52 @@
+<div class="duo">
+  {%- for block in section.blocks -%}
+    {%- assign b = block.settings -%}
+    <div class="shero" {{ block.shopify_attributes }}>
+      {%- if b.link != blank -%}<a class="shero__slide-link" href="{{ b.link }}">{%- endif -%}
+      <div class="shero__media">
+        {%- if b.image != blank -%}
+          <img src="{{ b.image | image_url: width: 1200 }}" alt="{{ b.heading | escape }}" loading="lazy" width="1200" height="675">
+        {%- elsif b.asset != blank -%}
+          <img src="{{ b.asset | asset_url }}" alt="{{ b.heading | escape }}" loading="lazy" width="1920" height="1083">
+        {%- endif -%}
+      </div>
+      {%- if b.link != blank -%}</a>{%- endif -%}
+      <div class="shero__copy">
+        {%- if b.heading != blank -%}<h2 class="t-hero">{{ b.heading }}</h2>{%- endif -%}
+      </div>
+      {%- if b.btn_label != blank -%}
+        <div class="shero__actions"><a class="btn btn--ghost" href="{{ b.link | default: routes.all_products_collection_url }}">{{ b.btn_label }}</a></div>
+      {%- endif -%}
+    </div>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Two-up banners",
+  "max_blocks": 2,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "asset", "label": "Asset fallback" },
+        { "type": "text", "id": "heading", "label": "Heading" },
+        { "type": "text", "id": "btn_label", "label": "Button label", "default": "Shop now" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Two-up banners",
+      "blocks": [
+        { "type": "banner", "settings": { "asset": "hero-beach.webp", "heading": "Shop hats" } },
+        { "type": "banner", "settings": { "asset": "hero-steps.webp", "heading": "Shop shirts" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

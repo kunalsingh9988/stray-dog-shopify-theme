@@ -1,0 +1,36 @@
+{
+  "sections": {
+    "hero": {
+      "type": "feature-hero",
+      "settings": {
+        "asset": "hero-marina.webp",
+        "heading": "Every order helps a stray",
+        "text": "A portion of every sale is donated to rescues and shelters that give stray dogs a second chance.",
+        "btn1_label": "Shop the drop",
+        "btn1_link": "shopify://collections/all",
+        "height": 560
+      }
+    },
+    "story": {
+      "type": "split-feature",
+      "settings": {
+        "asset": "hero-beach.webp",
+        "eyebrow": "Why we do it",
+        "heading": "Good dogs deserve good homes",
+        "text": "We started Stray Dog because we kept meeting strays on the water — at marinas, boat ramps, and beaches — and wanted to do something about it.",
+        "text2": "Every product funds food, vet care, and adoptions through our rescue partners."
+      }
+    },
+    "values": {
+      "type": "values",
+      "blocks": {
+        "v1": { "type": "value", "settings": { "heading": "Donate", "text": "A cut of every order goes to rescue partners." } },
+        "v2": { "type": "value", "settings": { "heading": "Rescue", "text": "Funds help shelters cover food, meds, and transport." } },
+        "v3": { "type": "value", "settings": { "heading": "Adopt", "text": "We share adoptable dogs with the pack on our channels." } }
+      },
+      "block_order": ["v1", "v2", "v3"]
+    },
+    "email": { "type": "newsletter", "settings": { "heading": "Join the pack" } }
+  },
+  "order": ["hero", "story", "values", "email"]
+}

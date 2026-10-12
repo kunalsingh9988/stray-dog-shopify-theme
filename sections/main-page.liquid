@@ -1,0 +1,19 @@
+<div class="page-wrap">
+  <h1>{{ page.title }}</h1>
+  <div class="rte">
+    {%- if page.content != blank -%}
+      {{ page.content }}
+    {%- else -%}
+      <p>{{ section.settings.fallback }}</p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [
+    { "type": "textarea", "id": "fallback", "label": "Fallback text", "default": "This page is being set up — check back soon." }
+  ]
+}
+{% endschema %}

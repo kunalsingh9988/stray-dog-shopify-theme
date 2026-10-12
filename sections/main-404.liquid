@@ -1,0 +1,9 @@
+<div class="page-wrap center" style="padding-top:80px;padding-bottom:80px;">
+  <h1>{{ 'templates.404.title' | t }}</h1>
+  <p class="t-small" style="color:var(--sd-text-muted);margin-bottom:26px;">{{ 'templates.404.subtext' | t }}</p>
+  <a class="btn" href="{{ routes.all_products_collection_url }}">{{ 'templates.404.continue' | t }}</a>
+</div>
+
+{% schema %}
+{ "name": "404", "settings": [] }
+{% endschema %}

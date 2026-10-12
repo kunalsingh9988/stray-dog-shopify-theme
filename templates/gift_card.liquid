@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {%- assign gc_value = gift_card.initial_value | money -%}
+    <title>{{ 'gift_cards.issued.title' | t: value: gc_value, shop: shop.name }}</title>
+    {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ content_for_header }}
+  </head>
+  <body>
+    <div class="page-wrap center" style="padding-top:90px;">
+      <img src="{{ 'straydog-logo-black.png' | asset_url }}" alt="Stray Dog" style="width:160px;height:auto;margin:0 auto 30px;" width="636" height="352">
+      <h1>{{ 'gift_cards.issued.subtext' | t }}</h1>
+      <p class="t-hero" style="margin:20px 0;">{{ gift_card.initial_value | money }}</p>
+      {%- if gift_card.code -%}
+        <p style="font-size:18px;letter-spacing:3px;border:1px solid var(--sd-border);display:inline-block;padding:14px 26px;">{{ gift_card.code | format_code }}</p>
+      {%- endif -%}
+      <div style="margin-top:30px;">
+        <a class="btn" href="{{ routes.root_url }}">{{ 'gift_cards.issued.shop_link' | t }}</a>
+      </div>
+      {%- if gift_card.qr_code -%}
+        <div style="margin-top:30px;"><img src="{{ gift_card.qr_code }}" alt="QR code" width="140" height="140" style="margin:0 auto;"></div>
+      {%- endif -%}
+    </div>
+  </body>
+</html>

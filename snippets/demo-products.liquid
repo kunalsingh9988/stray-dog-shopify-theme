@@ -1,0 +1,73 @@
+{% comment %}
+  Demo product cards used when a section has no real collection/products yet.
+  Params: kind ('new' | 'hats' | 'shirts' | 'soon' | 'all'), limit
+{% endcomment %}
+{%- liquid
+  assign lim = limit | default: 8
+  assign shown = 0
+-%}
+
+{%- if kind == 'hats' or kind == 'all' or kind == 'new' -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Script Trucker Hat — Gold', price: '$40.00', image: 'hat-script-gold.webp', swatches: '#c9a24b,#1a1a1a' -%}
+  {%- endif -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Script Trucker Hat — Pink Stitch', price: '$40.00', image: 'hat-script-pink.webp', swatches: '#e2548f,#1a1a1a' -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if kind == 'hats' or kind == 'all' -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Neon Trucker Hat — Hot Pink', price: '$42.00', image: 'hat-pink.webp', swatches: '#ef5f9e' -%}
+  {%- endif -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Patch Trucker Hat — Black / White', price: '$38.00', image: 'hat-patch-bw.webp', swatches: '#1a1a1a,#f4f4f4' -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if kind == 'shirts' or kind == 'all' or kind == 'new' -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Essential Script Tee — White', price: '$36.00', image: 'tee-script-white.webp', swatches: '#f4f1ea,#1a1a1a,#6b1f2a' -%}
+  {%- endif -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Essential Script Tee — Black', price: '$36.00', image: 'tee-script-black.webp', swatches: '#1a1a1a,#f4f1ea,#6b1f2a' -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if kind == 'shirts' or kind == 'all' -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Essential Script Tee — Burgundy', price: '$36.00', image: 'tee-script-burgundy.webp', swatches: '#6b1f2a,#1a1a1a,#f4f1ea' -%}
+  {%- endif -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Essential Script Tee — Cream', price: '$34.00', image: 'tee-script-cream.webp', swatches: '#efe6d4' -%}
+  {%- endif -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Rescue Club Tee — Black', price: '$38.00', image: 'tee-dog-black.webp', swatches: '#1a1a1a' -%}
+  {%- endif -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Harbor Badge Tee — Black', price: '$38.00', image: 'tee-badge-black.webp', swatches: '#1a1a1a' -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if kind == 'soon' -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Coastal Hoodie — Sand', price: 'Coming soon', image: 'tee-script-cream.webp', badge: 'Coming soon' -%}
+  {%- endif -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Harbor Crewneck — Charcoal', price: 'Coming soon', image: 'tee-dog-black.webp', badge: 'Coming soon' -%}
+  {%- endif -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Bay Bucket Hat — Khaki', price: 'Coming soon', image: 'hat-patch-bw.webp', badge: 'Coming soon' -%}
+  {%- endif -%}
+  {%- assign shown = shown | plus: 1 -%}{%- if shown <= lim -%}
+    {%- render 'product-card', title: 'Stray Tote — Natural', price: 'Coming soon', image: 'tee-script-burgundy.webp', badge: 'Coming soon' -%}
+  {%- endif -%}
+{%- endif -%}
+
+{%- if shown == 0 -%}
+  {%- comment -%}unknown kind fallback: show all{%- endcomment -%}
+  {%- render 'product-card', title: 'Script Trucker Hat — Gold', price: '$40.00', image: 'hat-script-gold.webp' -%}
+  {%- render 'product-card', title: 'Essential Script Tee — White', price: '$36.00', image: 'tee-script-white.webp' -%}
+  {%- render 'product-card', title: 'Essential Script Tee — Black', price: '$36.00', image: 'tee-script-black.webp' -%}
+  {%- render 'product-card', title: 'Script Trucker Hat — Pink Stitch', price: '$40.00', image: 'hat-script-pink.webp' -%}
+{%- endif -%}

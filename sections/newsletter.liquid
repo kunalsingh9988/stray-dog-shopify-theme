@@ -1,0 +1,27 @@
+<div class="newsletter-band">
+  <h2>{{ section.settings.heading }}</h2>
+  <p>{{ section.settings.sub }}</p>
+  {%- form 'customer', class: 'newsletter-form' -%}
+    <input type="hidden" name="contact[tags]" value="newsletter">
+    <input type="email" name="contact[email]" placeholder="{{ 'general.newsletter.email' | t }}" required aria-label="{{ 'general.newsletter.email' | t }}">
+    <button class="btn" type="submit">{{ 'general.newsletter.sign_up' | t }}</button>
+    {%- if form.posted_successfully? -%}
+      <p class="form-success">{{ 'general.newsletter.success' | t }}</p>
+    {%- elsif form.errors -%}
+      <p class="form-error">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+    {%- endif -%}
+  {%- endform -%}
+  <p class="newsletter-note">{{ section.settings.note }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "Email signup",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Join the pack" },
+    { "type": "text", "id": "sub", "label": "Sub text", "default": "First looks at drops, restocks, and rescue stories." },
+    { "type": "text", "id": "note", "label": "Fine print", "default": "No spam — just good vibes and new gear." }
+  ],
+  "presets": [{ "name": "Email signup" }]
+}
+{% endschema %}

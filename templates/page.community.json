@@ -1,0 +1,24 @@
+{
+  "sections": {
+    "gallery": {
+      "type": "community-gallery",
+      "settings": {
+        "heading": "The pack",
+        "sub": "Tag @straydogclothing for a chance to get featured."
+      },
+      "blocks": {
+        "c1": { "type": "photo", "settings": { "asset": "hero-beach.webp" } },
+        "c2": { "type": "photo", "settings": { "asset": "hero-steps.webp" } },
+        "c3": { "type": "photo", "settings": { "asset": "hero-motel.webp" } },
+        "c4": { "type": "photo", "settings": { "asset": "hero-sunset.webp" } },
+        "c5": { "type": "photo", "settings": { "asset": "hero-marina.webp" } },
+        "c6": { "type": "photo", "settings": { "asset": "hat-pink.webp" } },
+        "c7": { "type": "photo", "settings": { "asset": "tee-script-cream.webp" } },
+        "c8": { "type": "photo", "settings": { "asset": "hat-script-gold.webp" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8"]
+    },
+    "email": { "type": "newsletter", "settings": { "heading": "Join the pack", "sub": "Send us your shots — trips, events, dock days." } }
+  },
+  "order": ["gallery", "email"]
+}

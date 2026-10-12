@@ -1,0 +1,218 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero-slideshow",
+      "settings": { "interval": 6 },
+      "blocks": {
+        "s1": {
+          "type": "slide",
+          "settings": {
+            "asset": "hero-beach.webp",
+            "heading": "Stray Dog — Summer Drop",
+            "text": "Coastal tees and trucker hats made for slow mornings, salt air, and good dogs.",
+            "btn1_label": "Shop now",
+            "btn1_link": "shopify://collections/all",
+            "btn2_label": "Learn more",
+            "btn2_link": "shopify://pages/about"
+          }
+        },
+        "s2": {
+          "type": "slide",
+          "settings": {
+            "asset": "hero-steps.webp",
+            "heading": "The Pack Essentials",
+            "text": "Everyday staples for the ones who rescue, roam, and ride along.",
+            "btn1_label": "Shop now",
+            "btn1_link": "shopify://collections/all"
+          }
+        },
+        "s3": {
+          "type": "slide",
+          "settings": {
+            "asset": "hero-marina.webp",
+            "heading": "Built for the Water",
+            "text": "A portion of every sale goes to dog rescues and shelters.",
+            "btn1_label": "Shop now",
+            "btn1_link": "shopify://collections/all",
+            "btn2_label": "Our mission",
+            "btn2_link": "shopify://pages/mission"
+          }
+        }
+      },
+      "block_order": ["s1", "s2", "s3"]
+    },
+    "new_arrivals": {
+      "type": "product-carousel",
+      "settings": {
+        "heading": "New arrivals",
+        "sub_link_label": "Shop all",
+        "demo_kind": "new",
+        "limit": 8,
+        "more_label": "Shop all"
+      }
+    },
+    "coming_soon": {
+      "type": "product-carousel",
+      "settings": {
+        "heading": "Coming soon",
+        "sub_link_label": "Get notified",
+        "demo_kind": "soon",
+        "limit": 4,
+        "more_label": "Get notified",
+        "more_link": "shopify://pages/contact"
+      }
+    },
+    "shop_hats": {
+      "type": "feature-hero",
+      "settings": {
+        "asset": "hero-beach.webp",
+        "heading": "Shop hats",
+        "text": "Truckers and caps built for sun, salt, and stray-hunting.",
+        "btn1_label": "Shop hats",
+        "btn1_link": "shopify://collections/hats",
+        "height": 700
+      },
+      "blocks": {
+        "t1": { "type": "tile", "settings": { "asset": "hat-script-gold.webp", "label": "Script trucker" } },
+        "t2": { "type": "tile", "settings": { "asset": "hat-script-pink.webp", "label": "Pink stitch" } },
+        "t3": { "type": "tile", "settings": { "asset": "hat-pink.webp", "label": "Neon trucker" } },
+        "t4": { "type": "tile", "settings": { "asset": "hat-patch-bw.webp", "label": "Patch trucker" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"]
+    },
+    "shop_shirts": {
+      "type": "feature-hero",
+      "settings": {
+        "asset": "hero-steps.webp",
+        "heading": "Shop shirts",
+        "text": "Heavyweight tees with the signature script — made to be lived in.",
+        "btn1_label": "Shop shirts",
+        "btn1_link": "shopify://collections/shirts",
+        "height": 700
+      },
+      "blocks": {
+        "t1": { "type": "tile", "settings": { "asset": "tee-script-white.webp", "label": "White" } },
+        "t2": { "type": "tile", "settings": { "asset": "tee-script-black.webp", "label": "Black" } },
+        "t3": { "type": "tile", "settings": { "asset": "tee-script-burgundy.webp", "label": "Burgundy" } },
+        "t4": { "type": "tile", "settings": { "asset": "tee-script-cream.webp", "label": "Cream" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"]
+    },
+    "marquee": {
+      "type": "marquee",
+      "settings": {
+        "items": "Free US shipping over $75 | Every order helps rescue dogs | New drop live now"
+      }
+    },
+    "featured_drop": {
+      "type": "hero-slideshow",
+      "settings": { "interval": 7 },
+      "blocks": {
+        "d1": {
+          "type": "slide",
+          "settings": {
+            "asset": "hero-motel.webp",
+            "heading": "The Night Owl Drop",
+            "text": "Limited-run graphics inspired by neon motels and late drives.",
+            "btn1_label": "Shop the drop",
+            "btn1_link": "shopify://collections/new-arrivals"
+          }
+        },
+        "d2": {
+          "type": "slide",
+          "settings": {
+            "asset": "hero-sunset.webp",
+            "heading": "Golden Hour Club",
+            "text": "Warm-weather staples for the ones chasing the light.",
+            "btn1_label": "Shop now",
+            "btn1_link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": ["d1", "d2"]
+    },
+    "drop_products": {
+      "type": "product-carousel",
+      "settings": {
+        "heading": "Featured drop",
+        "demo_kind": "all",
+        "limit": 8,
+        "more_label": "Shop all"
+      }
+    },
+    "mission": {
+      "type": "split-feature",
+      "settings": {
+        "asset": "hero-marina.webp",
+        "eyebrow": "Our mission",
+        "heading": "Every order helps a stray",
+        "text": "Stray Dog started with a crew of friends, a love of the water, and a soft spot for dogs that needed a home.",
+        "text2": "A portion of every sale goes straight to rescues and shelters — so every tee, every hat, helps a stray find its people.",
+        "btn_label": "Read our story",
+        "btn_link": "shopify://pages/mission",
+        "dark": true
+      }
+    },
+    "community": {
+      "type": "community-gallery",
+      "settings": {
+        "heading": "The pack",
+        "sub": "Tag @straydogclothing to get featured.",
+        "link_label": "Join us",
+        "link_url": "shopify://pages/community"
+      },
+      "blocks": {
+        "c1": { "type": "photo", "settings": { "asset": "hero-beach.webp", "label": "@saltlife" } },
+        "c2": { "type": "photo", "settings": { "asset": "hero-steps.webp", "label": "@dockdays" } },
+        "c3": { "type": "photo", "settings": { "asset": "hero-sunset.webp", "label": "@goldenhrs" } },
+        "c4": { "type": "photo", "settings": { "asset": "hero-marina.webp", "label": "@harbor" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4"]
+    },
+    "about": {
+      "type": "split-feature",
+      "settings": {
+        "asset": "hero-motel.webp",
+        "flip": true,
+        "eyebrow": "About us",
+        "heading": "Run by friends, powered by dogs",
+        "text": "We're a small crew who grew up on the water — fishing, surfing, and picking up strays along the way. Stray Dog is our way of giving back.",
+        "text2": "Every piece is made to be lived in: heavyweight cotton, coastal colors, and the signature stray script.",
+        "btn_label": "Meet the crew",
+        "btn_link": "shopify://pages/about"
+      }
+    },
+    "values": {
+      "type": "values",
+      "blocks": {
+        "v1": { "type": "value", "settings": { "heading": "Rescue first", "text": "A portion of every sale is donated to dog rescues and shelters." } },
+        "v2": { "type": "value", "settings": { "heading": "Made for the water", "text": "Built by a crew of friends who live on boats, boards, and beaches." } },
+        "v3": { "type": "value", "settings": { "heading": "The pack", "text": "Real people, real dogs, real trips — our community wears the brand." } }
+      },
+      "block_order": ["v1", "v2", "v3"]
+    },
+    "email": {
+      "type": "newsletter",
+      "settings": {
+        "heading": "Join the pack",
+        "sub": "First looks at drops, restocks, and rescue stories.",
+        "note": "No spam — just good vibes and new gear."
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "new_arrivals",
+    "coming_soon",
+    "shop_hats",
+    "shop_shirts",
+    "marquee",
+    "featured_drop",
+    "drop_products",
+    "mission",
+    "community",
+    "about",
+    "values",
+    "email"
+  ]
+}

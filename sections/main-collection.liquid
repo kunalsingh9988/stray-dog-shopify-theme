@@ -1,0 +1,65 @@
+{%- liquid
+  assign sort_by = collection.sort_by | default: collection.default_sort_by
+-%}
+
+<div class="collection-toolbar">
+  <span class="collection-toolbar__count">
+    {{ collection.products_count }} product{% if collection.products_count != 1 %}s{% endif %}
+  </span>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <label for="SortBy" class="visually-hidden">Sort by</label>
+    <select id="SortBy">
+      <option value="manual" {% if sort_by == 'manual' %}selected{% endif %}>Featured</option>
+      <option value="best-selling" {% if sort_by == 'best-selling' %}selected{% endif %}>Best selling</option>
+      <option value="title-ascending" {% if sort_by == 'title-ascending' %}selected{% endif %}>A–Z</option>
+      <option value="title-descending" {% if sort_by == 'title-descending' %}selected{% endif %}>Z–A</option>
+      <option value="price-ascending" {% if sort_by == 'price-ascending' %}selected{% endif %}>Price low–high</option>
+      <option value="price-descending" {% if sort_by == 'price-descending' %}selected{% endif %}>Price high–low</option>
+      <option value="created-descending" {% if sort_by == 'created-descending' %}selected{% endif %}>Newest</option>
+    </select>
+  </div>
+</div>
+
+{%- paginate collection.products by section.settings.per_page -%}
+  {%- if collection.products.size > 0 -%}
+    <div class="product-grid">
+      {%- for product in collection.products -%}
+        {%- render 'product-card', product: product -%}
+      {%- endfor -%}
+    </div>
+  {%- else -%}
+    <div class="product-grid">
+      {%- render 'demo-products', kind: 'all', limit: 8 -%}
+    </div>
+    <p class="center t-small" style="padding-top:24px;color:var(--sd-text-muted);">
+      Add products to the <strong>{{ collection.title }}</strong> collection to see them here.
+    </p>
+  {%- endif -%}
+
+  {%- if paginate.pages > 1 -%}
+    <nav class="pagination" aria-label="Pagination">
+      {%- if paginate.previous -%}
+        <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">&larr;</a>
+      {%- endif -%}
+      {%- for part in paginate.parts -%}
+        {%- if part.is_link -%}
+          <a href="{{ part.url }}">{{ part.title }}</a>
+        {%- else -%}
+          <span class="{% if part.title == paginate.current_page %}current{% endif %}">{{ part.title }}</span>
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if paginate.next -%}
+        <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}">&rarr;</a>
+      {%- endif -%}
+    </nav>
+  {%- endif -%}
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Product grid",
+  "settings": [
+    { "type": "range", "id": "per_page", "label": "Products per page", "min": 8, "max": 48, "step": 4, "default": 24 }
+  ]
+}
+{% endschema %}

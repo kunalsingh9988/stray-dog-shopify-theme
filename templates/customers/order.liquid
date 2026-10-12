@@ -1,0 +1,16 @@
+<div class="page-wrap">
+  <h1>Order {{ order.name }}</h1>
+  <p class="t-small" style="color:var(--sd-text-muted);">Placed {{ order.created_at | date: '%B %d, %Y' }}</p>
+  {%- for line in order.line_items -%}
+    <div class="cart-line" style="grid-template-columns:84px 1fr auto;">
+      <a href="{{ line.url }}">{%- if line.image -%}<img src="{{ line.image | image_url: width: 168 }}" alt="{{ line.title | escape }}" style="width:84px;height:84px;" width="168" height="168">{%- endif -%}</a>
+      <div>
+        <span class="cart-line__title">{{ line.title }}</span>
+        <div class="cart-line__meta">Qty {{ line.quantity }}</div>
+      </div>
+      <div class="cart-line__price">{{ line.final_line_price | money }}</div>
+    </div>
+  {%- endfor -%}
+  <div class="cart-summary"><div class="subtotal"><span>Total</span><span>{{ order.total_price | money }}</span></div></div>
+  <a class="t-link link-underline" href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
+</div>

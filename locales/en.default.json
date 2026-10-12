@@ -1,0 +1,117 @@
+{
+  "general": {
+    "search": {
+      "search": "Search",
+      "placeholder": "Search Stray Dog",
+      "no_results": "No results found for “{{ terms }}”. Check the spelling or try a different word.",
+      "results_with_count": {
+        "one": "{{ count }} result for “{{ terms }}”",
+        "other": "{{ count }} results for “{{ terms }}”"
+      }
+    },
+    "cart": {
+      "view": "View cart",
+      "empty": "Your cart is currently empty.",
+      "subtotal": "Subtotal",
+      "checkout": "Checkout",
+      "remove": "Remove",
+      "note": "Order note",
+      "taxes_note": "Taxes, discounts and shipping calculated at checkout."
+    },
+    "newsletter": {
+      "email": "Email address",
+      "sign_up": "Sign up",
+      "success": "Thanks for joining the pack.",
+      "label": "Join our list"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {{ number }}"
+    },
+    "accessibility": {
+      "loading": "Loading",
+      "close": "Close",
+      "menu": "Menu",
+      "previous_slide": "Previous slide",
+      "next_slide": "Next slide"
+    }
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Add to cart",
+      "sold_out": "Sold out",
+      "unavailable": "Unavailable",
+      "select_size": "Select a size",
+      "size": "Size",
+      "color": "Color",
+      "quantity": "Quantity",
+      "view_size_guide": "View size guide",
+      "dont_see_size": "Don't see your size?",
+      "regular_price": "Regular price",
+      "sale_price": "Sale price",
+      "on_sale": "Sale",
+      "new": "New",
+      "coming_soon": "Coming soon",
+      "complete_the_look": "Complete the look",
+      "related_products": "Related products",
+      "description": "Description",
+      "size_fit": "Size & fit",
+      "shipping_returns": "Shipping & returns",
+      "editors_note": "Editor's note:"
+    }
+  },
+  "templates": {
+    "404": {
+      "title": "Page not found",
+      "subtext": "The page you're looking for doesn't exist or has been moved.",
+      "continue": "Continue shopping"
+    },
+    "cart": {
+      "title": "Your cart",
+      "empty": "Your cart is empty",
+      "continue": "Continue shopping"
+    },
+    "contact": {
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "send": "Send"
+      }
+    }
+  },
+  "customer": {
+    "login_page": {
+      "title": "Sign in",
+      "email": "Email",
+      "password": "Password",
+      "sign_in": "Sign in",
+      "guest_title": "Continue as guest",
+      "forgot_password": "Forgot your password?",
+      "create_account": "Create account"
+    },
+    "register": {
+      "title": "Create account",
+      "first_name": "First name",
+      "last_name": "Last name",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Create"
+    },
+    "account": {
+      "title": "Account",
+      "orders": "Order history",
+      "details": "Account details",
+      "view_addresses": "View addresses",
+      "return": "Return to account"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext": "Your gift card",
+      "shop_link": "Continue shopping"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{%- assign b = section.settings -%}
+<div class="split-feature{% if b.flip %} split-feature--flip{% endif %}"{% if b.pad_top %} style="margin-top:18px;"{% endif %}>
+  <div class="split-feature__media">
+    {%- if b.image != blank -%}
+      <img src="{{ b.image | image_url: width: 1200 }}" alt="{{ b.heading | escape }}" loading="lazy" width="1200" height="675">
+    {%- elsif b.asset != blank -%}
+      <img src="{{ b.asset | asset_url }}" alt="{{ b.heading | escape }}" loading="lazy" width="1200" height="800">
+    {%- endif -%}
+  </div>
+  <div class="split-feature__body"{% if b.dark %} style="background:var(--sd-text);color:#fff;"{% endif %}>
+    {%- if b.eyebrow != blank -%}<span class="eyebrow"{% if b.dark %} style="color:rgba(255,255,255,.6);"{% endif %}>{{ b.eyebrow }}</span>{%- endif -%}
+    {%- if b.heading != blank -%}<h2>{{ b.heading }}</h2>{%- endif -%}
+    {%- if b.text != blank -%}<p{% if b.dark %} style="color:rgba(255,255,255,.85);"{% endif %}>{{ b.text }}</p>{%- endif -%}
+    {%- if b.text2 != blank -%}<p{% if b.dark %} style="color:rgba(255,255,255,.85);"{% endif %}>{{ b.text2 }}</p>{%- endif -%}
+    {%- if b.btn_label != blank -%}
+      <div><a class="btn{% if b.dark %} btn--ghost{% endif %}" href="{{ b.btn_link | default: '/pages/about' }}">{{ b.btn_label }}</a></div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Split feature",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "asset", "label": "Asset fallback" },
+    { "type": "checkbox", "id": "flip", "label": "Image on right", "default": false },
+    { "type": "checkbox", "id": "dark", "label": "Dark panel", "default": false },
+    { "type": "checkbox", "id": "pad_top", "label": "Top spacing", "default": true },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow" },
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "textarea", "id": "text", "label": "Paragraph 1" },
+    { "type": "textarea", "id": "text2", "label": "Paragraph 2" },
+    { "type": "text", "id": "btn_label", "label": "Button label" },
+    { "type": "url", "id": "btn_link", "label": "Button link" }
+  ],
+  "presets": [
+    {
+      "name": "Split feature",
+      "settings": { "asset": "hero-marina.webp", "eyebrow": "Our mission", "heading": "Every order helps a stray", "text": "A portion of every sale is donated to rescues and shelters that give stray dogs a second chance.", "btn_label": "Learn more" }
+    }
+  ]
+}
+{% endschema %}

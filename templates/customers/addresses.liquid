@@ -1,0 +1,10 @@
+<div class="page-wrap">
+  <h1>Addresses</h1>
+  {%- for address in customer.addresses -%}
+    <div style="border:1px solid var(--sd-border);padding:18px;margin-bottom:14px;">
+      <p class="t-small">{{ address | format_address }}</p>
+      {%- if address == customer.default_address -%}<p class="t-label" style="margin-top:8px;">Default</p>{%- endif -%}
+    </div>
+  {%- endfor -%}
+  <a class="t-link link-underline" href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
+</div>

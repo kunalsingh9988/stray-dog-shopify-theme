@@ -1,0 +1,44 @@
+{%- if settings.cart_drawer -%}
+<aside id="CartDrawer" class="cart-drawer" aria-label="{{ 'general.cart.view' | t }}">
+  <div class="cart-drawer__head">
+    <h2>{{ 'general.cart.view' | t }} (<span class="cart-count" style="position:static;transform:none;font-size:12px;">{{ cart.item_count }}</span>)</h2>
+    <button type="button" data-close-cart aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', name: 'close' %}</button>
+  </div>
+  {%- if settings.show_free_shipping_note and settings.free_shipping_text != blank -%}
+    <p class="cart-drawer__ship">{{ settings.free_shipping_text }}</p>
+  {%- endif -%}
+  <div id="CartDrawerItems" class="cart-drawer__items">
+    {%- if cart.item_count == 0 -%}
+      <div class="cart-empty" style="padding:60px 0"><p>{{ 'general.cart.empty' | t }}</p></div>
+    {%- else -%}
+      {%- for item in cart.items -%}
+        <div class="cart-line" data-key="{{ item.key }}">
+          <a href="{{ item.url }}">
+            {%- if item.image -%}<img src="{{ item.image | image_url: width: 168 }}" alt="{{ item.title | escape }}" width="168" height="168">{%- endif -%}
+          </a>
+          <div>
+            <a class="cart-line__title" href="{{ item.url }}">{{ item.product.title }}</a>
+            <div class="cart-line__meta">{{ item.variant.title }}</div>
+            <div class="cart-line__qty">
+              <button data-qty="-1" aria-label="Decrease">&minus;</button>
+              <input type="number" value="{{ item.quantity }}" min="0" data-qty-input aria-label="{{ 'products.product.quantity' | t }}">
+              <button data-qty="1" aria-label="Increase">+</button>
+            </div>
+            <a class="cart-line__remove" href="#" data-remove>{{ 'general.cart.remove' | t }}</a>
+          </div>
+          <div class="cart-line__price">{{ item.final_line_price | money }}</div>
+        </div>
+      {%- endfor -%}
+    {%- endif -%}
+  </div>
+  <div class="cart-drawer__foot">
+    <div class="subtotal"><span>{{ 'general.cart.subtotal' | t }}</span><span id="CartDrawerSubtotal">{{ cart.total_price | money }}</span></div>
+    <p class="note">{{ 'general.cart.taxes_note' | t }}</p>
+    <a class="btn btn--full" href="{{ routes.cart_url }}">{{ 'general.cart.view' | t }}</a>
+    <form action="{{ routes.cart_url }}" method="post" style="margin-top:10px;">
+      <button class="btn btn--full" type="submit" name="checkout">{{ 'general.cart.checkout' | t }}</button>
+    </form>
+  </div>
+</aside>
+{%- endif -%}
+<meta name="sd-money-format" content="{{ shop.money_format | replace: '"', '&quot;' }}">

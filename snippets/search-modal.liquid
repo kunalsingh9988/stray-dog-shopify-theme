@@ -1,0 +1,9 @@
+<div id="SearchModal" class="search-modal" role="dialog" aria-modal="true" aria-label="{{ 'general.search.search' | t }}">
+  <form action="{{ routes.search_url }}" method="get" role="search" class="search-modal__row">
+    {% render 'icon', name: 'search' %}
+    <input id="SearchInput" type="search" name="q" placeholder="{{ 'general.search.placeholder' | t }}" autocomplete="off" aria-label="{{ 'general.search.search' | t }}">
+    <input type="hidden" name="type" value="product">
+    <button type="button" data-close-search aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', name: 'close' %}</button>
+  </form>
+  <div id="SearchResults" class="search-modal__results"></div>
+</div>

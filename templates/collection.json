@@ -1,0 +1,61 @@
+{
+  "sections": {
+    "hero": {
+      "type": "collection-hero",
+      "settings": {
+        "asset": "hero-marina.webp",
+        "link_label": "Shop all",
+        "preview_count": 6,
+        "demo_kind": "all"
+      }
+    },
+    "cats": {
+      "type": "collection-tiles",
+      "blocks": {
+        "t1": { "type": "tile", "settings": { "asset": "hero-beach.webp", "label": "Shop hats", "link": "shopify://collections/hats" } },
+        "t2": { "type": "tile", "settings": { "asset": "hero-steps.webp", "label": "Shop shirts", "link": "shopify://collections/shirts" } },
+        "t3": { "type": "tile", "settings": { "asset": "hero-sunset.webp", "label": "Coming soon", "link": "shopify://collections/coming-soon" } },
+        "t4": { "type": "tile", "settings": { "asset": "hero-motel.webp", "label": "The pack", "link": "shopify://pages/community" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4"]
+    },
+    "drop": {
+      "type": "feature-hero",
+      "settings": {
+        "asset": "hero-sunset.webp",
+        "heading": "The golden hour drop",
+        "text": "New tees and truckers in coastal colors.",
+        "btn1_label": "Shop the drop",
+        "btn1_link": "shopify://collections/new-arrivals",
+        "height": 640
+      }
+    },
+    "drop_carousel": {
+      "type": "product-carousel",
+      "settings": { "demo_kind": "new", "limit": 8, "more_label": "Shop all" }
+    },
+    "duo": {
+      "type": "duo-banner",
+      "blocks": {
+        "b1": { "type": "banner", "settings": { "asset": "hero-beach.webp", "heading": "Hats", "btn_label": "Shop hats", "link": "shopify://collections/hats" } },
+        "b2": { "type": "banner", "settings": { "asset": "hero-steps.webp", "heading": "Shirts", "btn_label": "Shop shirts", "link": "shopify://collections/shirts" } }
+      },
+      "block_order": ["b1", "b2"]
+    },
+    "brand_tiles": {
+      "type": "collection-tiles",
+      "blocks": {
+        "b1": { "type": "tile", "settings": { "asset": "tee-script-white.webp", "label": "Tees" } },
+        "b2": { "type": "tile", "settings": { "asset": "hat-script-gold.webp", "label": "Trucker hats" } },
+        "b3": { "type": "tile", "settings": { "asset": "tee-dog-black.webp", "label": "Rescue club" } },
+        "b4": { "type": "tile", "settings": { "asset": "hat-patch-bw.webp", "label": "Accessories" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "grid": {
+      "type": "main-collection",
+      "settings": { "per_page": 24 }
+    }
+  },
+  "order": ["hero", "cats", "drop", "drop_carousel", "duo", "brand_tiles", "grid"]
+}

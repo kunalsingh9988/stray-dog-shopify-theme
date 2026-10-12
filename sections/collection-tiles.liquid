@@ -1,0 +1,44 @@
+<div class="tiles">
+  {%- for block in section.blocks -%}
+    {%- assign t = block.settings -%}
+    <a class="tile" href="{{ t.link | default: routes.all_products_collection_url }}" {{ block.shopify_attributes }}>
+      {%- if t.image != blank -%}
+        <img src="{{ t.image | image_url: width: 800 }}" srcset="{{ t.image | image_url: width: 400 }} 400w, {{ t.image | image_url: width: 800 }} 800w" sizes="(max-width:749px) 50vw, 25vw" alt="{{ t.label | escape }}" loading="lazy" width="800" height="1067">
+      {%- elsif t.asset != blank -%}
+        <img src="{{ t.asset | asset_url }}" alt="{{ t.label | escape }}" loading="lazy" width="800" height="1067">
+      {%- endif -%}
+      {%- if t.label != blank -%}<span class="tile__label">{{ t.label }}</span>{%- endif -%}
+    </a>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Category tiles",
+  "max_blocks": 4,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "tile",
+      "name": "Tile",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "asset", "label": "Asset fallback" },
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category tiles",
+      "blocks": [
+        { "type": "tile", "settings": { "asset": "hero-beach.webp", "label": "Shop hats" } },
+        { "type": "tile", "settings": { "asset": "hero-steps.webp", "label": "Shop shirts" } },
+        { "type": "tile", "settings": { "asset": "hero-sunset.webp", "label": "Coming soon" } },
+        { "type": "tile", "settings": { "asset": "hero-marina.webp", "label": "The pack" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

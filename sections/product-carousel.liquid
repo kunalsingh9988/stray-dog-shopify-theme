@@ -1,0 +1,60 @@
+{%- liquid
+  assign col = collections[section.settings.collection]
+  assign has_products = false
+  if col != blank and col.products.size > 0
+    assign has_products = true
+  endif
+-%}
+
+{%- if section.settings.heading != blank -%}
+  <div class="section-head">
+    <h2>{{ section.settings.heading }}</h2>
+    {%- if section.settings.sub_link_label != blank -%}
+      <a class="t-link" href="{{ section.settings.sub_link_url | default: routes.all_products_collection_url }}">{{ section.settings.sub_link_label }}</a>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+<div class="scarousel">
+  <div class="scarousel__viewport">
+    <button class="scarousel__arrow scarousel__arrow--prev" aria-label="{{ 'general.accessibility.previous_slide' | t }}">{% render 'icon', name: 'chevron-left' %}</button>
+    <div class="scarousel__track">
+      {%- if has_products -%}
+        {%- for product in col.products limit: section.settings.limit -%}
+          {%- render 'product-card', product: product -%}
+        {%- endfor -%}
+      {%- else -%}
+        {%- render 'demo-products', kind: section.settings.demo_kind, limit: section.settings.limit -%}
+      {%- endif -%}
+    </div>
+    <button class="scarousel__arrow scarousel__arrow--next" aria-label="{{ 'general.accessibility.next_slide' | t }}">{% render 'icon', name: 'chevron-right' %}</button>
+  </div>
+  <div class="scarousel__more">
+    <a class="btn btn--outline" href="{{ section.settings.more_link | default: col.url | default: routes.all_products_collection_url }}">{{ section.settings.more_label | default: 'Shop all' }}</a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Product carousel",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading" },
+    { "type": "text", "id": "sub_link_label", "label": "Side link label" },
+    { "type": "url", "id": "sub_link_url", "label": "Side link URL" },
+    { "type": "collection", "id": "collection", "label": "Collection" },
+    { "type": "range", "id": "limit", "label": "Max products", "min": 4, "max": 12, "step": 1, "default": 8 },
+    { "type": "select", "id": "demo_kind", "label": "Demo products (shown until a collection is set)", "options": [
+      { "value": "all", "label": "All products" },
+      { "value": "new", "label": "New arrivals" },
+      { "value": "hats", "label": "Hats" },
+      { "value": "shirts", "label": "Shirts" },
+      { "value": "soon", "label": "Coming soon" }
+    ], "default": "all" },
+    { "type": "text", "id": "more_label", "label": "Button label", "default": "Shop all" },
+    { "type": "url", "id": "more_link", "label": "Button link" }
+  ],
+  "presets": [
+    { "name": "Product carousel", "settings": { "heading": "New arrivals", "demo_kind": "new" } }
+  ]
+}
+{% endschema %}

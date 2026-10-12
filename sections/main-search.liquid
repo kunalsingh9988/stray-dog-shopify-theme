@@ -1,0 +1,46 @@
+{%- paginate search.results by 24 -%}
+<div class="page-wrap" style="max-width:none;padding-bottom:0;">
+  <h1 style="font-size:24px;">
+    {%- if search.performed -%}
+      {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+    {%- else -%}
+      {{ 'general.search.search' | t }}
+    {%- endif -%}
+  </h1>
+  <form action="{{ routes.search_url }}" method="get" role="search" class="newsletter-form" style="margin:18px 0 0;max-width:460px;">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}" style="border-color:var(--sd-text);color:var(--sd-text);">
+    <input type="hidden" name="type" value="product">
+    <button class="btn" type="submit">{{ 'general.search.search' | t }}</button>
+  </form>
+</div>
+
+{%- if search.performed -%}
+  {%- if search.results.size > 0 -%}
+    <div class="product-grid">
+      {%- for item in search.results -%}
+        {%- if item.object_type == 'product' -%}
+          {%- render 'product-card', product: item -%}
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if paginate.pages > 1 -%}
+      <nav class="pagination">
+        {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}">&larr;</a>{%- endif -%}
+        {%- for part in paginate.parts -%}
+          {%- if part.is_link -%}<a href="{{ part.url }}">{{ part.title }}</a>{%- else -%}<span class="{% if part.title == paginate.current_page %}current{% endif %}">{{ part.title }}</span>{%- endif -%}
+        {%- endfor -%}
+        {%- if paginate.next -%}<a href="{{ paginate.next.url }}">&rarr;</a>{%- endif -%}
+      </nav>
+    {%- endif -%}
+  {%- else -%}
+    <div class="page-wrap" style="padding-top:10px;">
+      <p class="t-small" style="color:var(--sd-text-muted);">{{ 'general.search.no_results' | t: terms: search.terms }}</p>
+      <div style="margin-top:22px;"><a class="btn" href="{{ routes.all_products_collection_url }}">Shop all</a></div>
+    </div>
+  {%- endif -%}
+{%- endif -%}
+{%- endpaginate -%}
+
+{% schema %}
+{ "name": "Search", "settings": [] }
+{% endschema %}

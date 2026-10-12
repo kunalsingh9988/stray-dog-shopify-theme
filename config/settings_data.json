@@ -1,0 +1,12 @@
+{
+  "current": {
+    "color_text": "#333333",
+    "color_background": "#ffffff",
+    "color_accent": "#d97757",
+    "cart_drawer": true,
+    "show_free_shipping_note": true,
+    "free_shipping_text": "Free U.S. shipping on orders over $75",
+    "donation_text": "A portion of every sale helps rescue and shelter dogs find their people.",
+    "logo_width": 120
+  }
+}

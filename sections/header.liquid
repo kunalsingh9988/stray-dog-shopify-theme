@@ -1,0 +1,94 @@
+{%- assign logo_style = 'height: ' | append: section.settings.logo_height | append: 'px; width: auto;' -%}
+<header class="sd-header">
+  {%- comment -%} Left: burger (mobile) + nav {%- endcomment -%}
+  <button class="sd-header__burger" data-open-menu aria-label="{{ 'general.accessibility.menu' | t }}">
+    {% render 'icon', name: 'menu' %}
+  </button>
+  <nav class="sd-header__nav" aria-label="Main">
+    {%- if section.settings.menu != blank and linklists[section.settings.menu].links.size > 0 -%}
+      {%- for link in linklists[section.settings.menu].links -%}
+        <a href="{{ link.url }}"{% if link.current %} aria-current="page"{% endif %}>{{ link.title }}</a>
+      {%- endfor -%}
+    {%- else -%}
+      <a href="{{ routes.all_products_collection_url }}">Shop All</a>
+      <a href="{{ collections['hats'].url | default: routes.all_products_collection_url }}">Hats</a>
+      <a href="{{ collections['shirts'].url | default: routes.all_products_collection_url }}">Shirts</a>
+      <a href="/pages/community">Community</a>
+    {%- endif -%}
+  </nav>
+
+  {%- comment -%} Center: logo {%- endcomment -%}
+  <a class="sd-header__logo" href="{{ routes.root_url }}" aria-label="{{ shop.name }}">
+    {%- if section.settings.logo != blank -%}
+      {{ section.settings.logo | image_url: width: 400 | image_tag: style: logo_style, alt: shop.name }}
+    {%- else -%}
+      <img src="{{ 'straydog-logo-black.png' | asset_url }}" alt="Stray Dog" width="636" height="352" style="height: {{ section.settings.logo_height }}px; width: auto;">
+    {%- endif -%}
+  </a>
+
+  {%- comment -%} Right: links + icons {%- endcomment -%}
+  <div class="sd-header__icons">
+    {%- if section.settings.side_menu != blank and linklists[section.settings.side_menu].links.size > 0 -%}
+      {%- for link in linklists[section.settings.side_menu].links limit: 1 -%}
+        <a class="t-nav only-desktop" href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+    {%- else -%}
+      <a class="t-nav only-desktop" href="/pages/mission">Our Mission</a>
+    {%- endif -%}
+    <a class="sd-header__icon" href="{{ routes.account_url }}" aria-label="Account">
+      {% render 'icon', name: 'account' %}
+    </a>
+    <button class="sd-header__icon" data-open-search aria-label="{{ 'general.search.search' | t }}">
+      {% render 'icon', name: 'search' %}
+    </button>
+    {%- if settings.cart_drawer -%}
+      <button class="sd-header__icon" data-open-cart aria-label="{{ 'general.cart.view' | t }}">
+        {% render 'icon', name: 'cart' %}
+        <span class="cart-count">{{ cart.item_count }}</span>
+      </button>
+    {%- else -%}
+      <a class="sd-header__icon" href="{{ routes.cart_url }}" aria-label="{{ 'general.cart.view' | t }}">
+        {% render 'icon', name: 'cart' %}
+        <span class="cart-count">{{ cart.item_count }}</span>
+      </a>
+    {%- endif -%}
+  </div>
+</header>
+
+<aside id="MenuDrawer" class="menu-drawer" aria-label="Menu">
+  <div class="menu-drawer__head">
+    <img src="{{ 'straydog-logo-black.png' | asset_url }}" alt="Stray Dog" width="120" height="66" style="height:26px;width:auto;">
+    <button type="button" data-close-menu aria-label="{{ 'general.accessibility.close' | t }}">{% render 'icon', name: 'close' %}</button>
+  </div>
+  <nav class="menu-drawer__nav">
+    {%- if section.settings.menu != blank and linklists[section.settings.menu].links.size > 0 -%}
+      {%- for link in linklists[section.settings.menu].links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- endfor -%}
+    {%- else -%}
+      <a href="{{ routes.all_products_collection_url }}">Shop All</a>
+      <a href="{{ collections['hats'].url | default: routes.all_products_collection_url }}">Hats</a>
+      <a href="{{ collections['shirts'].url | default: routes.all_products_collection_url }}">Shirts</a>
+      <a href="{{ collections['coming-soon'].url | default: routes.all_products_collection_url }}">Coming Soon</a>
+      <a href="/pages/community">Community</a>
+    {%- endif -%}
+  </nav>
+  <div class="menu-drawer__sub">
+    <a href="/pages/mission">Our Mission</a>
+    <a href="/pages/about">About Us</a>
+    <a href="{{ routes.account_url }}">Account</a>
+    <a href="/pages/contact">Contact</a>
+  </div>
+</aside>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Main menu", "default": "main-menu" },
+    { "type": "link_list", "id": "side_menu", "label": "Right-side link menu" },
+    { "type": "image_picker", "id": "logo", "label": "Custom logo" },
+    { "type": "range", "id": "logo_height", "label": "Logo height", "min": 20, "max": 80, "step": 2, "unit": "px", "default": 34 }
+  ]
+}
+{% endschema %}

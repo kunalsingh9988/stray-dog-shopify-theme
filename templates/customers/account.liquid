@@ -1,0 +1,27 @@
+<div class="page-wrap">
+  <h1>{{ 'customer.account.title' | t }}</h1>
+  <div style="display:grid;grid-template-columns:2fr 1fr;gap:40px;">
+    <div>
+      <h3 class="t-label" style="margin-bottom:14px;">{{ 'customer.account.orders' | t }}</h3>
+      {%- if customer.orders.size > 0 -%}
+        <ul>
+          {%- for order in customer.orders -%}
+            <li style="border-bottom:1px solid var(--sd-border);padding:12px 0;display:flex;justify-content:space-between;">
+              <a class="t-link link-underline" href="{{ order.customer_url }}">{{ order.name }}</a>
+              <span class="t-small">{{ order.total_price | money }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      {%- else -%}
+        <p class="t-small" style="color:var(--sd-text-muted);">No orders yet — time to fix that.</p>
+        <a class="btn" href="{{ routes.all_products_collection_url }}" style="margin-top:16px;">Shop now</a>
+      {%- endif -%}
+    </div>
+    <div>
+      <h3 class="t-label" style="margin-bottom:14px;">{{ 'customer.account.details' | t }}</h3>
+      <p class="t-small">{{ customer.name }}<br>{{ customer.email }}</p>
+      <a class="t-link link-underline" href="{{ routes.account_addresses_url }}" style="display:inline-block;margin-top:10px;">{{ 'customer.account.view_addresses' | t }}</a>
+      <div style="margin-top:14px;"><a class="t-link link-underline" href="{{ routes.account_logout_url }}">Log out</a></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,103 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Stray Dog",
+    "theme_version": "1.0.0",
+    "theme_author": "Stray Dog Clothing",
+    "theme_documentation_url": "https://shopify.dev/docs/themes",
+    "theme_support_url": "https://shopify.dev/docs/themes"
+  },
+  {
+    "name": "Branding",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo image",
+        "info": "Replaces the default Stray Dog script logo."
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon image"
+      },
+      {
+        "type": "range",
+        "id": "logo_width",
+        "label": "Logo width",
+        "min": 60,
+        "max": 300,
+        "step": 10,
+        "unit": "px",
+        "default": 120
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#333333"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#d97757"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_drawer",
+        "label": "Enable cart drawer",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "show_free_shipping_note",
+        "label": "Show free shipping note",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_text",
+        "label": "Free shipping text",
+        "default": "Free U.S. shipping on orders over $75"
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      { "type": "url", "id": "social_instagram", "label": "Instagram" },
+      { "type": "url", "id": "social_facebook", "label": "Facebook" },
+      { "type": "url", "id": "social_tiktok", "label": "TikTok" },
+      { "type": "url", "id": "social_twitter", "label": "X (Twitter)" },
+      { "type": "url", "id": "social_youtube", "label": "YouTube" }
+    ]
+  },
+  {
+    "name": "Brand story",
+    "settings": [
+      {
+        "type": "text",
+        "id": "donation_text",
+        "label": "Donation line",
+        "default": "A portion of every sale helps rescue and shelter dogs find their people."
+      }
+    ]
+  }
+]

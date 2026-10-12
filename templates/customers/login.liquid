@@ -1,0 +1,25 @@
+<div class="page-wrap" style="max-width:480px;">
+  <h1>{{ 'customer.login_page.title' | t }}</h1>
+  {%- form 'customer_login' -%}
+    {{ form.errors | default_errors }}
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <input type="email" name="customer[email]" placeholder="{{ 'customer.login_page.email' | t }}" required style="height:44px;border:1px solid var(--sd-text);padding:0 14px;">
+      <input type="password" name="customer[password]" placeholder="{{ 'customer.login_page.password' | t }}" required style="height:44px;border:1px solid var(--sd-text);padding:0 14px;">
+      <button class="btn btn--full" type="submit">{{ 'customer.login_page.sign_in' | t }}</button>
+      <div style="display:flex;justify-content:space-between;">
+        <a class="t-link link-underline" href="#recover" onclick="document.getElementById('recover').style.display='block';this.style.display='none';return false;">{{ 'customer.login_page.forgot_password' | t }}</a>
+        <a class="t-link link-underline" href="{{ routes.account_register_url }}">{{ 'customer.login_page.create_account' | t }}</a>
+      </div>
+    </div>
+  {%- endform -%}
+  <div id="recover" style="display:none;margin-top:22px;">
+    {%- form 'recover_customer_password' -%}
+      {{ form.errors | default_errors }}
+      {%- if form.posted_successfully? -%}<p class="form-success">Check your email for a reset link.</p>{%- endif -%}
+      <div style="display:flex;flex-direction:column;gap:14px;">
+        <input type="email" name="email" placeholder="{{ 'customer.login_page.email' | t }}" required style="height:44px;border:1px solid var(--sd-text);padding:0 14px;">
+        <button class="btn btn--full" type="submit">Reset password</button>
+      </div>
+    {%- endform -%}
+  </div>
+</div>

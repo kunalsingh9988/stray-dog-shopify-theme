@@ -1,0 +1,59 @@
+<div class="section-head">
+  <h2>{{ section.settings.heading }}</h2>
+  {%- if section.settings.link_label != blank -%}
+    <a class="t-link" href="{{ section.settings.link_url | default: '#' }}">{{ section.settings.link_label }}</a>
+  {%- endif -%}
+</div>
+{%- if section.settings.sub != blank -%}
+  <p class="t-small" style="padding: 8px var(--sd-page-pad) 0; color: var(--sd-text-muted);">{{ section.settings.sub }}</p>
+{%- endif -%}
+
+<div class="community-grid">
+  {%- for block in section.blocks -%}
+    {%- assign t = block.settings -%}
+    <a class="tile" href="{{ t.link | default: '#' }}" {% if t.link == blank %}onclick="return false;" style="cursor:default;"{% endif %} {{ block.shopify_attributes }}>
+      {%- if t.image != blank -%}
+        <img src="{{ t.image | image_url: width: 700 }}" srcset="{{ t.image | image_url: width: 380 }} 380w, {{ t.image | image_url: width: 700 }} 700w" sizes="(max-width:749px) 50vw, 25vw" alt="{{ t.label | default: 'Community photo' | escape }}" loading="lazy" width="700" height="933">
+      {%- elsif t.asset != blank -%}
+        <img src="{{ t.asset | asset_url }}" alt="{{ t.label | default: 'Community photo' | escape }}" loading="lazy" width="800" height="1067">
+      {%- endif -%}
+      {%- if t.label != blank -%}<span class="tile__label">{{ t.label }}</span>{%- endif -%}
+    </a>
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Community gallery",
+  "max_blocks": 8,
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The Pack" },
+    { "type": "text", "id": "sub", "label": "Sub text", "default": "Tag @straydogclothing to get featured." },
+    { "type": "text", "id": "link_label", "label": "Link label" },
+    { "type": "url", "id": "link_url", "label": "Link URL" }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Photo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "asset", "label": "Asset fallback" },
+        { "type": "text", "id": "label", "label": "Label" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Community gallery",
+      "blocks": [
+        { "type": "photo", "settings": { "asset": "hero-beach.webp" } },
+        { "type": "photo", "settings": { "asset": "hero-steps.webp" } },
+        { "type": "photo", "settings": { "asset": "hero-sunset.webp" } },
+        { "type": "photo", "settings": { "asset": "hero-marina.webp" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

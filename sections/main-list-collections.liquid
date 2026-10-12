@@ -1,0 +1,23 @@
+<div class="page-wrap" style="max-width:none;padding-bottom:0;">
+  <h1>Collections</h1>
+</div>
+<div class="product-grid" style="padding-top:18px;">
+  {%- for col in collections -%}
+    {%- unless col.handle == 'frontpage' -%}
+      <a class="tile" href="{{ col.url }}" style="aspect-ratio:3/4;">
+        {%- if col.image -%}
+          <img src="{{ col.image | image_url: width: 700 }}" alt="{{ col.title | escape }}" loading="lazy" width="700" height="933">
+        {%- elsif col.products.first.featured_media -%}
+          <img src="{{ col.products.first.featured_media | image_url: width: 700 }}" alt="{{ col.title | escape }}" loading="lazy" width="700" height="933">
+        {%- else -%}
+          <img src="{{ 'hero-steps.webp' | asset_url }}" alt="{{ col.title | escape }}" loading="lazy" width="1920" height="1083">
+        {%- endif -%}
+        <span class="tile__label">{{ col.title }}</span>
+      </a>
+    {%- endunless -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}

@@ -1,0 +1,28 @@
+<div class="page-wrap" style="max-width:720px;">
+  <h1>{{ section.settings.heading }}</h1>
+  <table style="width:100%;border-collapse:collapse;font-size:12px;">
+    <tr><th style="border:1px solid var(--sd-border);padding:10px;text-align:left;text-transform:uppercase;font-size:10px;letter-spacing:1px;">Size</th><th style="border:1px solid var(--sd-border);padding:10px;text-align:left;text-transform:uppercase;font-size:10px;letter-spacing:1px;">Chest (in)</th><th style="border:1px solid var(--sd-border);padding:10px;text-align:left;text-transform:uppercase;font-size:10px;letter-spacing:1px;">Length (in)</th></tr>
+    {%- assign rows = section.settings.rows | split: '|' -%}
+    {%- for r in rows -%}
+      {%- assign c = r | split: ',' -%}
+      <tr>
+        <td style="border:1px solid var(--sd-border);padding:10px;font-weight:300;">{{ c[0] | strip }}</td>
+        <td style="border:1px solid var(--sd-border);padding:10px;font-weight:300;">{{ c[1] | strip }}</td>
+        <td style="border:1px solid var(--sd-border);padding:10px;font-weight:300;">{{ c[2] | strip }}</td>
+      </tr>
+    {%- endfor -%}
+  </table>
+  <p class="t-small" style="margin-top:16px;color:var(--sd-text-muted);">{{ section.settings.note }}</p>
+</div>
+
+{% schema %}
+{
+  "name": "Size guide",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Size guide" },
+    { "type": "textarea", "id": "rows", "label": "Rows (size,chest,length | …)", "default": "XS,34–36,26 | S,36–38,27 | M,38–40,28 | L,40–42,29 | XL,42–44,30 | XXL,44–46,31" },
+    { "type": "textarea", "id": "note", "label": "Note", "default": "Between sizes? Size up for a roomier fit. Measurements are garment measurements." }
+  ],
+  "presets": [{ "name": "Size guide" }]
+}
+{% endschema %}

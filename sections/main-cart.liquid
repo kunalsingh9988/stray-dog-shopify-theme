@@ -1,0 +1,46 @@
+<div class="cart-page">
+  {%- if cart.item_count == 0 -%}
+    <div class="cart-empty">
+      <h1>{{ 'templates.cart.empty' | t }}</h1>
+      <p>Looks like your pack is traveling light.</p>
+      <a class="btn" href="{{ routes.all_products_collection_url }}">{{ 'templates.cart.continue' | t }}</a>
+    </div>
+  {%- else -%}
+    <h1>{{ 'templates.cart.title' | t }}</h1>
+    <div id="CartItems">
+      {%- for item in cart.items -%}
+        <div class="cart-line" data-key="{{ item.key }}">
+          <a href="{{ item.url }}">
+            {%- if item.image -%}<img src="{{ item.image | image_url: width: 220 }}" alt="{{ item.title | escape }}" width="220" height="220">{%- endif -%}
+          </a>
+          <div>
+            <a class="cart-line__title" href="{{ item.url }}">{{ item.product.title }}</a>
+            <div class="cart-line__meta">{{ item.variant.title }}{% if item.selling_plan_allocation %} · Subscription{% endif %}</div>
+            <div class="cart-line__qty">
+              <button data-qty="-1" aria-label="Decrease">&minus;</button>
+              <input type="number" value="{{ item.quantity }}" min="0" data-qty-input aria-label="{{ 'products.product.quantity' | t }}">
+              <button data-qty="1" aria-label="Increase">+</button>
+            </div>
+            <a class="cart-line__remove" href="#" data-remove>{{ 'general.cart.remove' | t }}</a>
+          </div>
+          <div class="cart-line__price">{{ item.final_line_price | money }}</div>
+        </div>
+      {%- endfor -%}
+    </div>
+    <div class="cart-summary">
+      <div class="subtotal">
+        <span>{{ 'general.cart.subtotal' | t }}</span>
+        <span>{{ cart.total_price | money }}</span>
+      </div>
+      <p class="note t-small" style="color:var(--sd-text-muted);">{{ 'general.cart.taxes_note' | t }}</p>
+      <form action="{{ routes.cart_url }}" method="post" style="width:100%;max-width:380px;">
+        <button class="btn btn--full" type="submit" name="checkout">{{ 'general.cart.checkout' | t }}</button>
+      </form>
+      <a class="t-link link-underline" href="{{ routes.all_products_collection_url }}">{{ 'templates.cart.continue' | t }}</a>
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{ "name": "Cart", "settings": [] }
+{% endschema %}

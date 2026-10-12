@@ -1,0 +1,37 @@
+{
+  "sections": {
+    "intro": {
+      "type": "split-feature",
+      "settings": {
+        "asset": "hero-motel.webp",
+        "eyebrow": "About us",
+        "heading": "Run by friends, powered by dogs",
+        "text": "Stray Dog started with a crew of friends who grew up on the water — fishing, surfing, and picking up strays along the way.",
+        "text2": "Every piece is made to be lived in: heavyweight cotton, coastal colors, and the signature stray script."
+      }
+    },
+    "values": {
+      "type": "values",
+      "blocks": {
+        "v1": { "type": "value", "settings": { "heading": "Rescue first", "text": "A portion of every sale is donated to dog rescues and shelters." } },
+        "v2": { "type": "value", "settings": { "heading": "Made for the water", "text": "Built by a crew of friends who live on boats, boards, and beaches." } },
+        "v3": { "type": "value", "settings": { "heading": "The pack", "text": "Real people, real dogs, real trips — our community wears the brand." } }
+      },
+      "block_order": ["v1", "v2", "v3"]
+    },
+    "band": {
+      "type": "split-feature",
+      "settings": {
+        "asset": "hero-sunset.webp",
+        "flip": true,
+        "eyebrow": "Partners",
+        "heading": "Working with local rescues",
+        "text": "We team up with rescues and shelters along the coast to fund food, vet care, and adoptions. Partner list announced on our socials.",
+        "btn_label": "Join the pack",
+        "btn_link": "shopify://pages/community"
+      }
+    },
+    "email": { "type": "newsletter", "settings": { "heading": "Join the pack" } }
+  },
+  "order": ["intro", "values", "band", "email"]
+}

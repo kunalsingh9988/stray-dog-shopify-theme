@@ -1,0 +1,11 @@
+<div class="page-wrap" style="max-width:480px;">
+  <h1>Activate account</h1>
+  {%- form 'activate_customer_password' -%}
+    {{ form.errors | default_errors }}
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <input type="password" name="customer[password]" placeholder="Password" required style="height:44px;border:1px solid var(--sd-text);padding:0 14px;">
+      <input type="password" name="customer[password_confirmation]" placeholder="Confirm password" required style="height:44px;border:1px solid var(--sd-text);padding:0 14px;">
+      <button class="btn btn--full" type="submit">Activate</button>
+    </div>
+  {%- endform -%}
+</div>

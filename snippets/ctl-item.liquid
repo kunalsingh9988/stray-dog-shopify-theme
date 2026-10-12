@@ -1,0 +1,38 @@
+{% comment %} Complete-the-look item. Accepts: product OR title/price/image/color {% endcomment %}
+<div class="ctl__item">
+  {%- if product != blank -%}
+    <a class="ctl__img" href="{{ product.url }}">
+      {%- if product.featured_media -%}
+        <img src="{{ product.featured_media | image_url: width: 360 }}" alt="{{ product.title | escape }}" loading="lazy" width="360" height="360">
+      {%- else -%}
+        <img src="{{ 'tee-script-white.webp' | asset_url }}" alt="{{ product.title | escape }}" loading="lazy" width="1200" height="1200">
+      {%- endif -%}
+    </a>
+    <div class="ctl__meta">
+      <p class="t-card"><a href="{{ product.url }}">{{ product.title }}</a></p>
+      <p class="t-small">Color: {{ product.selected_or_first_available_variant.option1 }}</p>
+      <p class="t-small">{{ product.price | money }}</p>
+      <div class="ctl__buy">
+        <select aria-label="Variant">
+          {%- for v in product.variants -%}
+            {%- if v.available -%}<option value="{{ v.id }}">{{ v.title }}</option>{%- endif -%}
+          {%- endfor -%}
+        </select>
+        <button type="button" class="btn" data-quick-add>{{ 'products.product.add_to_cart' | t }}</button>
+      </div>
+    </div>
+  {%- else -%}
+    <a class="ctl__img" href="{{ routes.all_products_collection_url }}">
+      <img src="{{ image | asset_url }}" alt="{{ title | escape }}" loading="lazy" width="360" height="360">
+    </a>
+    <div class="ctl__meta">
+      <p class="t-card"><a href="{{ routes.all_products_collection_url }}">{{ title }}</a></p>
+      <p class="t-small">Color: {{ color }}</p>
+      <p class="t-small">{{ price }}</p>
+      <div class="ctl__buy">
+        <select aria-label="Size"><option>OS</option></select>
+        <a class="btn" href="{{ routes.all_products_collection_url }}">Shop now</a>
+      </div>
+    </div>
+  {%- endif -%}
+</div>
