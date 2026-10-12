@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop — Stray Dog</title>
+<link rel="stylesheet" href="assets/base.css">
+</head>
+<body>
+
+<header class="sd-header">
+  <button class="sd-header__burger"><svg viewBox="0 0 20 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M0 1h20M0 7h20M0 13h20"/></svg></button>
+  <nav class="sd-header__nav">
+    <a href="shop.html">Shop All</a><a href="shop.html">Hats</a><a href="shop.html">Shirts</a><a href="#">Community</a>
+  </nav>
+  <a class="sd-header__logo" href="index.html"><img src="assets/straydog-logo-black.png" alt="Stray Dog" style="height:34px;width:auto;"></a>
+  <div class="sd-header__icons">
+    <a class="t-nav only-desktop" href="#">Our Mission</a>
+    <a class="sd-header__icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="10" cy="6.4" r="3.9"/><path d="M1.8 19c1.4-3.7 4.4-5.6 8.2-5.6s6.8 1.9 8.2 5.6"/></svg></a>
+    <a class="sd-header__icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="9" r="7.3"/><path d="m14.5 14.5 4.5 4.5"/></svg></a>
+    <a class="sd-header__icon"><svg viewBox="0 0 20 18.2" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M.9.9h2.6l2.2 11.2h11.5l1.9-8.2H4.2"/><circle cx="7.4" cy="16.4" r="1"/><circle cx="15.4" cy="16.4" r="1"/></svg><span class="cart-count">0</span></a>
+  </div>
+</header>
+
+<!-- SPLIT HERO + PRODUCT GRID -->
+<div class="collection-split">
+  <div class="collection-split__media"><img src="assets/hero-marina.webp" alt="Shop all"></div>
+  <div class="collection-split__body">
+    <div class="collection-split__head">
+      <h2>Shop all</h2>
+      <a class="t-link" href="shop.html">Shop all</a>
+    </div>
+    <div class="collection-split__grid">
+      <div class="product-card"><a class="product-card__media"><img src="assets/hat-script-gold.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Script Trucker Hat — Gold</a></p><p class="product-card__price">$40.00</p><div class="product-card__swatches"><span class="swatch active"><span style="background:#c9a24b"></span></span><span class="swatch"><span style="background:#1a1a1a"></span></span></div></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/hat-script-pink.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Script Trucker Hat — Pink Stitch</a></p><p class="product-card__price">$40.00</p><div class="product-card__swatches"><span class="swatch active"><span style="background:#e2548f"></span></span><span class="swatch"><span style="background:#1a1a1a"></span></span></div></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/tee-script-white.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Essential Script Tee — White</a></p><p class="product-card__price">$36.00</p><div class="product-card__swatches"><span class="swatch active"><span style="background:#f4f1ea"></span></span><span class="swatch"><span style="background:#1a1a1a"></span></span><span class="swatch"><span style="background:#6b1f2a"></span></span></div></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/tee-script-black.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Essential Script Tee — Black</a></p><p class="product-card__price">$36.00</p><div class="product-card__swatches"><span class="swatch active"><span style="background:#1a1a1a"></span></span><span class="swatch"><span style="background:#f4f1ea"></span></span><span class="swatch"><span style="background:#6b1f2a"></span></span></div></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/hat-pink.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Neon Trucker Hat — Hot Pink</a></p><p class="product-card__price">$42.00</p></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/tee-script-burgundy.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Essential Script Tee — Burgundy</a></p><p class="product-card__price">$36.00</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORY TILES -->
+<div class="community-grid" style="padding-top:0;">
+  <a class="tile" href="shop.html"><img src="assets/hero-beach.webp"><span class="tile__label">Shop hats</span></a>
+  <a class="tile" href="shop.html"><img src="assets/hero-steps.webp"><span class="tile__label">Shop shirts</span></a>
+  <a class="tile" href="shop.html"><img src="assets/hero-sunset.webp"><span class="tile__label">Coming soon</span></a>
+  <a class="tile" href="#"><img src="assets/hero-motel.webp"><span class="tile__label">The pack</span></a>
+</div>
+
+<!-- LINKED HERO CAROUSEL -->
+<div class="slideshow" data-interval="7000">
+  <div class="shero shero__slide active">
+    <div class="shero__media"><img src="assets/hero-sunset.webp" alt=""></div>
+    <div class="shero__copy"><h2 class="t-hero">The Golden Hour Drop</h2><p class="desc">New tees and truckers in coastal colors — made for chasing the light.</p></div>
+    <div class="shero__actions"><a class="btn btn--ghost" href="shop.html">Shop now</a><a class="btn btn--ghost" href="shop.html">A closer look</a></div>
+  </div>
+  <div class="shero shero__slide">
+    <div class="shero__media"><img src="assets/hero-motel.webp" alt=""></div>
+    <div class="shero__copy"><h2 class="t-hero">Night Owl Club</h2><p class="desc">Limited-run graphics inspired by neon motels and late drives.</p></div>
+    <div class="shero__actions"><a class="btn btn--ghost" href="shop.html">Shop now</a><a class="btn btn--ghost" href="shop.html">A closer look</a></div>
+  </div>
+  <div class="shero__dots"></div>
+</div>
+
+<!-- NEW ARRIVALS CAROUSEL -->
+<div class="scarousel">
+  <div class="scarousel__viewport">
+    <button class="scarousel__arrow scarousel__arrow--prev"><svg viewBox="0 0 12 19" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10.5 1 2 9.5l8.5 8.5"/></svg></button>
+    <div class="scarousel__track">
+      <div class="product-card"><a class="product-card__media"><img src="assets/hat-script-gold.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Script Trucker Hat — Gold</a></p><p class="product-card__price">$40.00</p></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/hat-script-pink.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Script Trucker Hat — Pink Stitch</a></p><p class="product-card__price">$40.00</p></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/tee-script-white.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Essential Script Tee — White</a></p><p class="product-card__price">$36.00</p></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/tee-script-black.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Essential Script Tee — Black</a></p><p class="product-card__price">$36.00</p></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/hat-pink.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Neon Trucker Hat — Hot Pink</a></p><p class="product-card__price">$42.00</p></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/tee-script-burgundy.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Essential Script Tee — Burgundy</a></p><p class="product-card__price">$36.00</p></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/hat-patch-bw.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Patch Trucker Hat — Black / White</a></p><p class="product-card__price">$38.00</p></div></div>
+      <div class="product-card"><a class="product-card__media"><img src="assets/tee-dog-black.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Rescue Club Tee — Black</a></p><p class="product-card__price">$38.00</p></div></div>
+    </div>
+    <button class="scarousel__arrow scarousel__arrow--next"><svg viewBox="0 0 12 19" fill="none" stroke="currentColor" stroke-width="1.6"><path d="m1.5 1 8.5 8.5-8.5 8.5"/></svg></button>
+  </div>
+  <div class="scarousel__more"><a class="btn btn--outline" href="shop.html">Shop all</a></div>
+</div>
+
+<!-- BIG SINGLE HERO -->
+<div class="shero" style="height:min(50vw,864px);">
+  <div class="shero__media"><img src="assets/hero-marina.webp" alt=""></div>
+  <div class="shero__copy"><h2 class="t-hero">Harbor Palette</h2><p class="desc">The core capsule — heavyweight tees and truckers in washed coastal tones.</p></div>
+  <div class="shero__actions"><a class="btn btn--ghost" href="shop.html">Shop now</a><a class="btn btn--ghost" href="#">Learn more</a></div>
+</div>
+
+<!-- HATS ROW -->
+<div class="section-head"><h2>Trucker hats</h2><a class="t-link" href="shop.html">Shop hats</a></div>
+<div class="product-grid">
+  <div class="product-card"><a class="product-card__media"><img src="assets/hat-script-gold.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Script Trucker Hat — Gold</a></p><p class="product-card__price">$40.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/hat-script-pink.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Script Trucker Hat — Pink Stitch</a></p><p class="product-card__price">$40.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/hat-pink.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Neon Trucker Hat — Hot Pink</a></p><p class="product-card__price">$42.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/hat-patch-bw.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Patch Trucker Hat — Black / White</a></p><p class="product-card__price">$38.00</p></div></div>
+</div>
+
+<!-- DUO BANNER -->
+<div class="duo">
+  <div class="shero" style="height:min(38vw,560px);">
+    <a class="shero__slide-link" href="shop.html"><div class="shero__media"><img src="assets/hero-beach.webp"></div></a>
+    <div class="shero__copy"><h2 class="t-hero" style="font-size:26px;">Hats</h2></div>
+    <div class="shero__actions"><a class="btn btn--ghost" href="shop.html">Shop hats</a></div>
+  </div>
+  <div class="shero" style="height:min(38vw,560px);">
+    <a class="shero__slide-link" href="shop.html"><div class="shero__media"><img src="assets/hero-steps.webp"></div></a>
+    <div class="shero__copy"><h2 class="t-hero" style="font-size:26px;">Shirts</h2></div>
+    <div class="shero__actions"><a class="btn btn--ghost" href="shop.html">Shop shirts</a></div>
+  </div>
+</div>
+
+<!-- BRAND TILES -->
+<div class="community-grid" style="padding-top:0;">
+  <a class="tile" href="shop.html"><img src="assets/tee-script-white.webp"><span class="tile__label">Tees</span></a>
+  <a class="tile" href="shop.html"><img src="assets/hat-script-gold.webp"><span class="tile__label">Trucker hats</span></a>
+  <a class="tile" href="shop.html"><img src="assets/tee-dog-black.webp"><span class="tile__label">Rescue club</span></a>
+  <a class="tile" href="shop.html"><img src="assets/hat-patch-bw.webp"><span class="tile__label">Accessories</span></a>
+</div>
+
+<!-- SHIRTS FEATURE + TILES -->
+<div class="feature-hero">
+  <div class="shero" style="height:640px;">
+    <div class="shero__media"><img src="assets/hero-steps.webp" alt=""></div>
+    <div class="shero__copy"><h2 class="t-hero">Shop shirts</h2><p class="desc">Heavyweight tees with the signature script — made to be lived in.</p></div>
+    <div class="shero__actions"><a class="btn btn--ghost" href="shop.html">Shop shirts</a></div>
+  </div>
+  <div class="tiles">
+    <a class="tile" href="shop.html"><img src="assets/tee-script-white.webp"><span class="tile__label">White</span></a>
+    <a class="tile" href="shop.html"><img src="assets/tee-script-black.webp"><span class="tile__label">Black</span></a>
+    <a class="tile" href="shop.html"><img src="assets/tee-script-burgundy.webp"><span class="tile__label">Burgundy</span></a>
+    <a class="tile" href="shop.html"><img src="assets/tee-script-cream.webp"><span class="tile__label">Cream</span></a>
+  </div>
+</div>
+
+<!-- FULL GRID (main collection) -->
+<div class="collection-toolbar" style="padding-top:24px;"><span class="collection-toolbar__count">10 products</span><select id="SortBy"><option>Featured</option><option>Price, low to high</option><option>Price, high to low</option><option>Newest</option></select>
+</div>
+<div class="product-grid">
+  <div class="product-card"><a class="product-card__media"><img src="assets/hat-script-gold.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Script Trucker Hat — Gold</a></p><p class="product-card__price">$40.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/hat-script-pink.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Script Trucker Hat — Pink Stitch</a></p><p class="product-card__price">$40.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/hat-pink.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Neon Trucker Hat — Hot Pink</a></p><p class="product-card__price">$42.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/hat-patch-bw.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Patch Trucker Hat — Black / White</a></p><p class="product-card__price">$38.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/tee-script-white.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Essential Script Tee — White</a></p><p class="product-card__price">$36.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/tee-script-black.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Essential Script Tee — Black</a></p><p class="product-card__price">$36.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/tee-script-cream.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Essential Script Tee — Cream</a></p><p class="product-card__price">$34.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/tee-script-burgundy.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Essential Script Tee — Burgundy</a></p><p class="product-card__price">$36.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/tee-dog-black.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Rescue Club Tee — Black</a></p><p class="product-card__price">$38.00</p></div></div>
+  <div class="product-card"><a class="product-card__media"><img src="assets/tee-badge-black.webp"></a><div class="product-card__info"><p class="product-card__title"><a>Harbor Badge Tee — Black</a></p><p class="product-card__price">$38.00</p></div></div>
+</div>
+
+<!-- FOOTER -->
+<footer class="sd-footer">
+  <div class="sd-footer__grid">
+    <div>
+      <h3>Join our list</h3>
+      <a class="t-link link-underline">Our mission</a>
+      <div style="height:14px"></div>
+      <form class="newsletter-inline"><input type="email" placeholder="Email address"><button>&rarr;</button></form>
+      <p class="sd-footer__fine">By signing up you agree to the <a>terms and conditions</a>, <a>privacy policy</a>, and <a>refund policy</a>.</p>
+    </div>
+    <div><h3>Shop</h3><ul><li><a href="shop.html">Shop all</a></li><li><a href="shop.html">Hats</a></li><li><a href="shop.html">Shirts</a></li><li><a href="shop.html">Coming soon</a></li><li><a href="shop.html">New arrivals</a></li></ul></div>
+    <div><h3>Learn</h3><ul><li><a>About us</a></li><li><a>Our mission</a></li><li><a>The pack</a></li><li><a>Contact us</a></li><li><a>Search</a></li></ul></div>
+    <div><h3>Help</h3><ul><li><a>Shipping</a></li><li><a>Returns</a></li><li><a>Size guide</a></li><li><a>FAQ</a></li><li><a>Support</a></li></ul></div>
+    <div><h3>Follow us</h3><ul><li><a>Instagram</a></li><li><a>TikTok</a></li><li><a>Facebook</a></li></ul></div>
+  </div>
+  <div class="sd-footer__bar">
+    <div class="legal"><span>© 2026 Stray Dog Clothing</span><a>Privacy</a><a>Terms</a><a>Refunds</a><a>Shipping</a></div>
+    <div class="legal"><span>Every order helps rescue dogs</span></div>
+  </div>
+</footer>
+
+<script src="assets/theme.js"></script>
+</body>
+</html>

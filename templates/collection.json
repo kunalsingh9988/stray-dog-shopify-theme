@@ -19,20 +19,30 @@
       },
       "block_order": ["t1", "t2", "t3", "t4"]
     },
-    "drop": {
-      "type": "feature-hero",
-      "settings": {
-        "asset": "hero-sunset.webp",
-        "heading": "The golden hour drop",
-        "text": "New tees and truckers in coastal colors.",
-        "btn1_label": "Shop the drop",
-        "btn1_link": "shopify://collections/new-arrivals",
-        "height": 640
-      }
+    "linked_hero": {
+      "type": "hero-slideshow",
+      "blocks": {
+        "s1": { "type": "slide", "settings": { "asset": "hero-sunset.webp", "heading": "The Golden Hour Drop", "text": "New tees and truckers in coastal colors — made for chasing the light.", "link": "shopify://collections/new-arrivals", "btn1_label": "Shop now", "btn1_link": "shopify://collections/new-arrivals", "btn2_label": "A closer look", "btn2_link": "shopify://collections/new-arrivals" } },
+        "s2": { "type": "slide", "settings": { "asset": "hero-motel.webp", "heading": "Night Owl Club", "text": "Limited-run graphics inspired by neon motels and late drives.", "link": "shopify://collections/new-arrivals", "btn1_label": "Shop now", "btn1_link": "shopify://collections/new-arrivals", "btn2_label": "A closer look", "btn2_link": "shopify://collections/new-arrivals" } }
+      },
+      "block_order": ["s1", "s2"],
+      "settings": { "interval": 7 }
     },
-    "drop_carousel": {
+    "linked_carousel": {
       "type": "product-carousel",
-      "settings": { "demo_kind": "new", "limit": 8, "more_label": "Shop all" }
+      "settings": { "demo_kind": "new", "limit": 8, "more_label": "Shop all", "more_link": "shopify://collections/all" }
+    },
+    "big_hero": {
+      "type": "hero-slideshow",
+      "blocks": {
+        "s1": { "type": "slide", "settings": { "asset": "hero-marina.webp", "heading": "Harbor Palette", "text": "The core capsule — heavyweight tees and truckers in washed coastal tones.", "link": "shopify://collections/all", "btn1_label": "Shop now", "btn1_link": "shopify://collections/all", "btn2_label": "Learn more", "btn2_link": "shopify://pages/mission" } }
+      },
+      "block_order": ["s1"],
+      "settings": { "interval": 7 }
+    },
+    "row_hats": {
+      "type": "product-carousel",
+      "settings": { "demo_kind": "hats", "limit": 4, "heading": "Trucker hats", "more_label": "Shop hats", "more_link": "shopify://collections/hats" }
     },
     "duo": {
       "type": "duo-banner",
@@ -45,17 +55,39 @@
     "brand_tiles": {
       "type": "collection-tiles",
       "blocks": {
-        "b1": { "type": "tile", "settings": { "asset": "tee-script-white.webp", "label": "Tees" } },
-        "b2": { "type": "tile", "settings": { "asset": "hat-script-gold.webp", "label": "Trucker hats" } },
-        "b3": { "type": "tile", "settings": { "asset": "tee-dog-black.webp", "label": "Rescue club" } },
-        "b4": { "type": "tile", "settings": { "asset": "hat-patch-bw.webp", "label": "Accessories" } }
+        "b1": { "type": "tile", "settings": { "asset": "tee-script-white.webp", "label": "Tees", "link": "shopify://collections/shirts" } },
+        "b2": { "type": "tile", "settings": { "asset": "hat-script-gold.webp", "label": "Trucker hats", "link": "shopify://collections/hats" } },
+        "b3": { "type": "tile", "settings": { "asset": "tee-dog-black.webp", "label": "Rescue club", "link": "shopify://collections/all" } },
+        "b4": { "type": "tile", "settings": { "asset": "hat-patch-bw.webp", "label": "Accessories", "link": "shopify://collections/all" } }
       },
       "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "tees_feature": {
+      "type": "feature-hero",
+      "settings": {
+        "asset": "hero-steps.webp",
+        "heading": "Shop shirts",
+        "text": "Heavyweight tees with the signature script — made to be lived in.",
+        "btn1_label": "Shop shirts",
+        "btn1_link": "shopify://collections/shirts",
+        "height": 640
+      },
+      "blocks": {
+        "w": { "type": "tile", "settings": { "asset": "tee-script-white.webp", "label": "White", "link": "shopify://collections/shirts" } },
+        "b": { "type": "tile", "settings": { "asset": "tee-script-black.webp", "label": "Black", "link": "shopify://collections/shirts" } },
+        "g": { "type": "tile", "settings": { "asset": "tee-script-burgundy.webp", "label": "Burgundy", "link": "shopify://collections/shirts" } },
+        "c": { "type": "tile", "settings": { "asset": "tee-script-cream.webp", "label": "Cream", "link": "shopify://collections/shirts" } }
+      },
+      "block_order": ["w", "b", "g", "c"]
+    },
+    "row_all": {
+      "type": "product-carousel",
+      "settings": { "demo_kind": "all", "limit": 4, "more_label": "Shop all", "more_link": "shopify://collections/all" }
     },
     "grid": {
       "type": "main-collection",
       "settings": { "per_page": 24 }
     }
   },
-  "order": ["hero", "cats", "drop", "drop_carousel", "duo", "brand_tiles", "grid"]
+  "order": ["hero", "cats", "linked_hero", "linked_carousel", "big_hero", "row_hats", "duo", "brand_tiles", "tees_feature", "row_all", "grid"]
 }

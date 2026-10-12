@@ -2,13 +2,15 @@
   "sections": {
     "hero": {
       "type": "hero-slideshow",
-      "settings": { "interval": 6 },
+      "settings": {
+        "interval": 6
+      },
       "blocks": {
         "s1": {
           "type": "slide",
           "settings": {
             "asset": "hero-beach.webp",
-            "heading": "Stray Dog — Summer Drop",
+            "heading": "Stray Dog \u2014 Summer Drop",
             "text": "Coastal tees and trucker hats made for slow mornings, salt air, and good dogs.",
             "btn1_label": "Shop now",
             "btn1_link": "shopify://collections/all",
@@ -39,7 +41,11 @@
           }
         }
       },
-      "block_order": ["s1", "s2", "s3"]
+      "block_order": [
+        "s1",
+        "s2",
+        "s3"
+      ]
     },
     "new_arrivals": {
       "type": "product-carousel",
@@ -48,7 +54,9 @@
         "sub_link_label": "Shop all",
         "demo_kind": "new",
         "limit": 8,
-        "more_label": "Shop all"
+        "more_label": "Shop all",
+        "sub_link_url": "shopify://collections/all",
+        "more_link": "shopify://collections/all"
       }
     },
     "coming_soon": {
@@ -59,7 +67,8 @@
         "demo_kind": "soon",
         "limit": 4,
         "more_label": "Get notified",
-        "more_link": "shopify://pages/contact"
+        "more_link": "shopify://collections/coming-soon",
+        "sub_link_url": "shopify://collections/coming-soon"
       }
     },
     "shop_hats": {
@@ -73,30 +82,96 @@
         "height": 700
       },
       "blocks": {
-        "t1": { "type": "tile", "settings": { "asset": "hat-script-gold.webp", "label": "Script trucker" } },
-        "t2": { "type": "tile", "settings": { "asset": "hat-script-pink.webp", "label": "Pink stitch" } },
-        "t3": { "type": "tile", "settings": { "asset": "hat-pink.webp", "label": "Neon trucker" } },
-        "t4": { "type": "tile", "settings": { "asset": "hat-patch-bw.webp", "label": "Patch trucker" } }
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "asset": "hat-script-gold.webp",
+            "label": "Script trucker",
+            "link": "shopify://collections/hats"
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "asset": "hat-script-pink.webp",
+            "label": "Pink stitch",
+            "link": "shopify://collections/hats"
+          }
+        },
+        "t3": {
+          "type": "tile",
+          "settings": {
+            "asset": "hat-pink.webp",
+            "label": "Neon trucker",
+            "link": "shopify://collections/hats"
+          }
+        },
+        "t4": {
+          "type": "tile",
+          "settings": {
+            "asset": "hat-patch-bw.webp",
+            "label": "Patch trucker",
+            "link": "shopify://collections/hats"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"]
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
     },
     "shop_shirts": {
       "type": "feature-hero",
       "settings": {
         "asset": "hero-steps.webp",
         "heading": "Shop shirts",
-        "text": "Heavyweight tees with the signature script — made to be lived in.",
+        "text": "Heavyweight tees with the signature script \u2014 made to be lived in.",
         "btn1_label": "Shop shirts",
         "btn1_link": "shopify://collections/shirts",
         "height": 700
       },
       "blocks": {
-        "t1": { "type": "tile", "settings": { "asset": "tee-script-white.webp", "label": "White" } },
-        "t2": { "type": "tile", "settings": { "asset": "tee-script-black.webp", "label": "Black" } },
-        "t3": { "type": "tile", "settings": { "asset": "tee-script-burgundy.webp", "label": "Burgundy" } },
-        "t4": { "type": "tile", "settings": { "asset": "tee-script-cream.webp", "label": "Cream" } }
+        "t1": {
+          "type": "tile",
+          "settings": {
+            "asset": "tee-script-white.webp",
+            "label": "White",
+            "link": "shopify://collections/shirts"
+          }
+        },
+        "t2": {
+          "type": "tile",
+          "settings": {
+            "asset": "tee-script-black.webp",
+            "label": "Black",
+            "link": "shopify://collections/shirts"
+          }
+        },
+        "t3": {
+          "type": "tile",
+          "settings": {
+            "asset": "tee-script-burgundy.webp",
+            "label": "Burgundy",
+            "link": "shopify://collections/shirts"
+          }
+        },
+        "t4": {
+          "type": "tile",
+          "settings": {
+            "asset": "tee-script-cream.webp",
+            "label": "Cream",
+            "link": "shopify://collections/shirts"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"]
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ]
     },
     "marquee": {
       "type": "marquee",
@@ -106,7 +181,9 @@
     },
     "featured_drop": {
       "type": "hero-slideshow",
-      "settings": { "interval": 7 },
+      "settings": {
+        "interval": 7
+      },
       "blocks": {
         "d1": {
           "type": "slide",
@@ -129,7 +206,10 @@
           }
         }
       },
-      "block_order": ["d1", "d2"]
+      "block_order": [
+        "d1",
+        "d2"
+      ]
     },
     "drop_products": {
       "type": "product-carousel",
@@ -137,7 +217,8 @@
         "heading": "Featured drop",
         "demo_kind": "all",
         "limit": 8,
-        "more_label": "Shop all"
+        "more_label": "Shop all",
+        "more_link": "shopify://collections/all"
       }
     },
     "mission": {
@@ -147,7 +228,7 @@
         "eyebrow": "Our mission",
         "heading": "Every order helps a stray",
         "text": "Stray Dog started with a crew of friends, a love of the water, and a soft spot for dogs that needed a home.",
-        "text2": "A portion of every sale goes straight to rescues and shelters — so every tee, every hat, helps a stray find its people.",
+        "text2": "A portion of every sale goes straight to rescues and shelters \u2014 so every tee, every hat, helps a stray find its people.",
         "btn_label": "Read our story",
         "btn_link": "shopify://pages/mission",
         "dark": true
@@ -162,12 +243,45 @@
         "link_url": "shopify://pages/community"
       },
       "blocks": {
-        "c1": { "type": "photo", "settings": { "asset": "hero-beach.webp", "label": "@saltlife" } },
-        "c2": { "type": "photo", "settings": { "asset": "hero-steps.webp", "label": "@dockdays" } },
-        "c3": { "type": "photo", "settings": { "asset": "hero-sunset.webp", "label": "@goldenhrs" } },
-        "c4": { "type": "photo", "settings": { "asset": "hero-marina.webp", "label": "@harbor" } }
+        "c1": {
+          "type": "photo",
+          "settings": {
+            "asset": "hero-beach.webp",
+            "label": "@saltlife",
+            "link": "shopify://pages/community"
+          }
+        },
+        "c2": {
+          "type": "photo",
+          "settings": {
+            "asset": "hero-steps.webp",
+            "label": "@dockdays",
+            "link": "shopify://pages/community"
+          }
+        },
+        "c3": {
+          "type": "photo",
+          "settings": {
+            "asset": "hero-sunset.webp",
+            "label": "@goldenhrs",
+            "link": "shopify://pages/community"
+          }
+        },
+        "c4": {
+          "type": "photo",
+          "settings": {
+            "asset": "hero-marina.webp",
+            "label": "@harbor",
+            "link": "shopify://pages/community"
+          }
+        }
       },
-      "block_order": ["c1", "c2", "c3", "c4"]
+      "block_order": [
+        "c1",
+        "c2",
+        "c3",
+        "c4"
+      ]
     },
     "about": {
       "type": "split-feature",
@@ -176,7 +290,7 @@
         "flip": true,
         "eyebrow": "About us",
         "heading": "Run by friends, powered by dogs",
-        "text": "We're a small crew who grew up on the water — fishing, surfing, and picking up strays along the way. Stray Dog is our way of giving back.",
+        "text": "We're a small crew who grew up on the water \u2014 fishing, surfing, and picking up strays along the way. Stray Dog is our way of giving back.",
         "text2": "Every piece is made to be lived in: heavyweight cotton, coastal colors, and the signature stray script.",
         "btn_label": "Meet the crew",
         "btn_link": "shopify://pages/about"
@@ -185,18 +299,40 @@
     "values": {
       "type": "values",
       "blocks": {
-        "v1": { "type": "value", "settings": { "heading": "Rescue first", "text": "A portion of every sale is donated to dog rescues and shelters." } },
-        "v2": { "type": "value", "settings": { "heading": "Made for the water", "text": "Built by a crew of friends who live on boats, boards, and beaches." } },
-        "v3": { "type": "value", "settings": { "heading": "The pack", "text": "Real people, real dogs, real trips — our community wears the brand." } }
+        "v1": {
+          "type": "value",
+          "settings": {
+            "heading": "Rescue first",
+            "text": "A portion of every sale is donated to dog rescues and shelters."
+          }
+        },
+        "v2": {
+          "type": "value",
+          "settings": {
+            "heading": "Made for the water",
+            "text": "Built by a crew of friends who live on boats, boards, and beaches."
+          }
+        },
+        "v3": {
+          "type": "value",
+          "settings": {
+            "heading": "The pack",
+            "text": "Real people, real dogs, real trips \u2014 our community wears the brand."
+          }
+        }
       },
-      "block_order": ["v1", "v2", "v3"]
+      "block_order": [
+        "v1",
+        "v2",
+        "v3"
+      ]
     },
     "email": {
       "type": "newsletter",
       "settings": {
         "heading": "Join the pack",
         "sub": "First looks at drops, restocks, and rescue stories.",
-        "note": "No spam — just good vibes and new gear."
+        "note": "No spam \u2014 just good vibes and new gear."
       }
     }
   },
