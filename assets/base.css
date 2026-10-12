@@ -589,3 +589,7 @@ body.drawer-open { overflow: hidden; }
   transition: transform 0.35s var(--sd-ease);
 }
 .toast.show { transform: translate(-50%, 0); }
+
+/* homepage: 48px vertical padding on every section */
+.template-index #MainContent > .shopify-section { padding-top: 48px; padding-bottom: 48px; }
+.template-index #MainContent > .shopify-section:first-child { padding-top: 0; }
