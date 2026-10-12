@@ -242,7 +242,7 @@ summary::-webkit-details-marker { display: none; }
 .scarousel__arrow svg { width: 12px; height: 19px; }
 .scarousel__arrow--prev { left: 0; }
 .scarousel__arrow--next { right: 0; }
-.scarousel__more { display: flex; justify-content: center; padding-top: 18px; }
+.scarousel__more { display: flex; justify-content: center; padding-top: 18px; padding-bottom: 18px; }
 
 @media screen and (max-width: 1199px) { .scarousel__track > * { flex-basis: calc((100% - 3 * 18px) / 4); } }
 @media screen and (max-width: 989px) { .scarousel__track > * { flex-basis: calc((100% - 2 * 18px) / 3); } }
