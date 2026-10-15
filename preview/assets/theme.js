@@ -7,6 +7,13 @@
   var annClose = document.querySelector("[data-announce-close]");
   if (ann && annClose) annClose.addEventListener("click", function () { ann.classList.add("hidden"); });
 
+  /* ---- Mobile menu ---- */
+  var menuBtn = document.querySelector("[data-menu-toggle]");
+  var mMenu = document.querySelector("[data-mobile-menu]");
+  if (menuBtn && mMenu) {
+    menuBtn.addEventListener("click", function () { mMenu.classList.toggle("open"); });
+  }
+
   /* ---- Back to top ---- */
   document.querySelectorAll("[data-btt]").forEach(function (b) {
     b.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });

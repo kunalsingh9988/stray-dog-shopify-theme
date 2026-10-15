@@ -18,10 +18,11 @@
   </div>
   <div class="sd2-header__bar">
     <div class="pill-cluster">
-      <a class="pill" href="shop.html">Shop All <sup>(14)</sup></a>
+      <button class="pill pill--menu" data-menu-toggle>Menu</button>
+      <a class="pill nav-hide" href="shop.html">Shop All <sup>(14)</sup></a>
       <a class="pill nav-hide" href="shop.html">Collections</a>
       <a class="pill nav-hide" href="#">Mission</a>
-      <a class="pill" href="shop.html">Search</a>
+      <a class="pill nav-hide" href="shop.html">Search</a>
     </div>
     <a class="sd2-header__logo" href="index.html"><img src="assets/straydog-logo-black.png" alt="Stray Dog Clothing"></a>
     <div class="pill-cluster">
@@ -29,15 +30,26 @@
       <a class="pill" href="#">Cart <sup data-cart-count>(0)</sup></a>
     </div>
   </div>
+  <nav class="mobile-menu" data-mobile-menu>
+    <a class="pill" href="shop.html">Shop All (14)</a>
+    <a class="pill" href="shop.html">Hats</a>
+    <a class="pill" href="shop.html">Shirts</a>
+    <a class="pill" href="shop.html">Collections</a>
+    <a class="pill" href="#">Mission</a>
+    <a class="pill" href="shop.html">Search</a>
+    <a class="pill" href="#">Login</a>
+  </nav>
 </header>
 
 <main>
   <div class="pdp">
     <!-- LEFT: info -->
-    <div class="pdp__info">
-      <p class="pdp__price">$40.00 USD</p>
-      <h1 class="pdp__title">Script Trucker Hat — Gold</h1>
-      <div style="margin-top:40px">
+    <div class="pdp__left">
+      <div class="pdp__info">
+        <p class="pdp__price">$40.00 USD</p>
+        <h1 class="pdp__title">Script Trucker Hat — Gold</h1>
+      </div>
+      <div class="pdp__acc" style="margin-top:40px">
         <details open>
           <summary>Details <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m1 1.5 5 5 5-5"/></svg></summary>
           <div class="acc-body">Our signature script trucker with an updated fit and a foam-free recycled crown. Made for lake days, road trips, and dogs that ride shotgun.
@@ -65,7 +77,7 @@ Free US shipping over $75. 30-day returns, no questions — even if your dog che
     </div>
 
     <!-- MIDDLE: gallery -->
-    <div>
+    <div class="pdp__gallery-wrap">
       <div class="pdp__gallery" data-gallery>
         <div class="pdp__img"><img src="assets/hat-script-gold.webp" alt="Script Trucker Hat — Gold"></div>
         <div class="pdp__img pdp__img--cover"><img src="assets/hero-motel.webp" alt="On body"></div>
