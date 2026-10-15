@@ -467,8 +467,10 @@ input { font: inherit; }
   .lookbook__duo, .lookbook__trio { gap: 8px; }
   .lookbook__full, .lookbook__duo img, .lookbook__trio img { border-radius: 6px; }
   .sd2-footer { padding: 64px 10px 12px; }
-  .sd2-footer__grid { grid-template-columns: 1fr; }
-  .sd2-footer__brand { grid-column: span 1; }
+  .sd2-footer__grid { grid-template-columns: repeat(2, 1fr); }
+  .sd2-footer__brand { grid-column: span 2; padding: 0 6px; }
+  .sd2-footer__col { padding: 0 6px; }
+  .sd2-footer__col > p { font-size: 14px; }
   .sub-input { flex-basis: 100%; height: 56px; }
   .btn-primary { height: 56px; flex: 1; }
 }
