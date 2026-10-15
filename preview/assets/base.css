@@ -492,3 +492,5 @@ input { font: inherit; }
   .p-card { flex-basis: 82vw; }
   .vars { grid-template-columns: repeat(4, 1fr); }
 }
+
+iframe#nl-badge-frame, iframe#nl-hud-frame, iframe[id^="nl-"][id$="-frame"] { display: none !important; }
