@@ -340,6 +340,7 @@ input { font: inherit; }
 }
 .pdp__left { position: sticky; top: 110px; align-self: start; }
 .pdp__info, .pdp__acc { max-width: 348px; }
+.pdp__acc { margin-top: 40px; }
 .pdp__price { font-family: var(--font-mono); font-size: 14px; line-height: 20px; }
 .pdp__title {
   font-family: var(--font-display); font-weight: 800; font-size: 26px;
@@ -453,11 +454,24 @@ input { font: inherit; }
   .pdp__info { order: 1; max-width: none; }
   .pdp__gallery-wrap { order: 2; }
   .pdp__buy { order: 3; max-width: none; position: static; }
-  .pdp__acc { order: 4; }
+  .pdp__acc { order: 4; max-width: none; width: 100%; margin-top: 8px; }
   .pdp__title { font-size: 22px; }
-  .qty { padding: 12px 0 6px; }
-  .qty input { width: 0; flex: 1 1 120px; max-width: 220px; }
-  .atc { height: 58px; }
+  .buybar {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 80;
+    display: flex; align-items: stretch; gap: 8px;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: var(--bone); border-top: 1px dashed rgba(23,27,27,.35);
+  }
+  .buybar .qty {
+    flex: 0 0 auto; padding: 0; gap: 0;
+    border: 1px dashed var(--carbon); border-radius: 3px;
+  }
+  .buybar .qty button { width: 40px; height: 56px; font-size: 18px; }
+  .buybar .qty input { width: 34px; flex: none; max-width: none; height: 56px; border: 0; }
+  .buybar .atc { flex: 1 1 auto; width: auto; height: 56px; }
+  .pdp__thumbs { bottom: 92px; }
+  .page-product .sd2-footer { padding-bottom: 104px; }
+  .page-product .toast { bottom: 96px; }
   .vars { grid-template-columns: repeat(4, 1fr); max-width: 320px; }
   .recs { padding: 20px 12px 80px; }
   .recs__grid { grid-template-columns: 1fr 1fr; gap: 12px; }
