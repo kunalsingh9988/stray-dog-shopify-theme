@@ -244,6 +244,7 @@ input { font: inherit; }
   padding-bottom: 30px;
 }
 .sd2-footer__brand { grid-column: span 2; padding: 0 16px; }
+.sd2-footer__logo { height: clamp(44px, 5vw, 72px); width: auto; }
 .sd2-footer__brand .h-display { font-size: clamp(38px, 4vw, 54px); }
 .sd2-footer__brand .mono { font-size: 13px; margin-top: 8px; letter-spacing: .06em; }
 .sd2-footer__col { padding: 0 16px; }
