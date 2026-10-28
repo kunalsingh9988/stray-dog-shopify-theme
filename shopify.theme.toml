@@ -1,0 +1,3 @@
+[environments.staging]
+store = "kunal-store-c1cmhjrr.myshopify.com"
+theme = "158401855720"
