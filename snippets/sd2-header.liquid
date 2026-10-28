@@ -11,7 +11,7 @@
       <a class="pill nav-hide" href="/pages/mission">Mission</a>
       <a class="pill nav-hide" href="{{ routes.search_url }}">Search</a>
     </div>
-    <a class="sd2-header__logo" href="/"><img width="636" height="352" src="assets/straydog-logo-black.png" alt="Stray Dog Clothing"></a>
+    <a class="sd2-header__logo" href="/"><img width="636" height="352" src="{{ 'straydog-logo-black.png' | asset_url }}" alt="Stray Dog Clothing"></a>
     <div class="pill-cluster">
       <a class="pill nav-hide" href="{{ routes.account_login_url }}">Login</a>
       <a class="pill" href="{{ routes.cart_url }}">Cart <sup data-cart-count>({{ cart.item_count }})</sup></a>

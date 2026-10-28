@@ -2,7 +2,7 @@
 
 
   <section class="hero hero--fade-strong hero--short">
-    <div class="hero__bg"><img width="1672" height="941" src="assets/hero-steps.webp" alt=""></div>
+    <div class="hero__bg"><img width="1672" height="941" src="{{ 'hero-steps.webp' | asset_url }}" alt=""></div>
     <div class="hero__content">
       <p class="hero__kicker">[ OUR MISSION ]</p>
       <h2 class="hero__title">Every stray deserves a pack</h2>
@@ -26,8 +26,8 @@
     </div>
   </div>
   <section class="duo">
-    <div class="duo__cell"><img width="1672" height="941" src="assets/hero-beach.webp" alt=""></div>
-    <div class="duo__cell"><img width="1672" height="941" src="assets/hero-sunset.webp" alt=""></div>
+    <div class="duo__cell"><img width="1672" height="941" src="{{ 'hero-beach.webp' | asset_url }}" alt=""></div>
+    <div class="duo__cell"><img width="1672" height="941" src="{{ 'hero-sunset.webp' | asset_url }}" alt=""></div>
   </section>
   <div class="page page--cta">
     <a class="btn-primary" href="{{ routes.all_products_collection_url }}">Shop — fund the rescue</a>
