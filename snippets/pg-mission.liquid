@@ -1,0 +1,36 @@
+{% assign pdp_url = collections.all.products.first.url | default: routes.all_products_collection_url %}
+
+
+  <section class="hero hero--fade-strong hero--short">
+    <div class="hero__bg"><img width="1672" height="941" src="{{ 'hero-steps.webp' | asset_url }}" alt=""></div>
+    <div class="hero__content">
+      <p class="hero__kicker">[ OUR MISSION ]</p>
+      <h2 class="hero__title">Every stray deserves a pack</h2>
+    </div>
+  </section>
+  <div class="page">
+    <div class="prose">
+      <h2>Why we exist</h2>
+      <p>Stray Dog started at a lake dock with one rescue mutt and a screen printer. We're an independent streetwear label built around a simple idea: gear for the ones who wander — and money for the dogs still finding their way home.</p>
+      <h2>The pledge</h2>
+      <p>10% of every order funds rescue dogs — shelter fees, vet bills, foster supplies, transport runs. Not a marketing line. It's in the ledger, every month, no minimum.</p>
+      <h2>How it works</h2>
+      <ul class="mono-list">
+        <li>[ 01 ] You order a hat or a tee</li>
+        <li>[ 02 ] We set aside 10% before anyone gets paid</li>
+        <li>[ 03 ] Funds go to partner shelters + foster networks</li>
+        <li>[ 04 ] Rescue updates drop in the newsletter — you see the dogs your order fed</li>
+      </ul>
+      <h2>Small batch, always</h2>
+      <p>We drop in small runs, restock what sells out, and never overproduce. If it's on the site, it was made to be worn hard — lake days, road trips, dogs riding shotgun.</p>
+    </div>
+  </div>
+  <section class="duo">
+    <div class="duo__cell"><img width="1672" height="941" src="{{ 'hero-beach.webp' | asset_url }}" alt=""></div>
+    <div class="duo__cell"><img width="1672" height="941" src="{{ 'hero-sunset.webp' | asset_url }}" alt=""></div>
+  </section>
+  <div class="page page--cta">
+    <a class="btn-primary" href="{{ routes.all_products_collection_url }}">Shop — fund the rescue</a>
+    <a class="pill" href="/pages/community">Meet the community</a>
+  </div>
+

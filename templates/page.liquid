@@ -1,9 +1,24 @@
+{% case page.handle %}
+  {% when "mission" %}{% render "pg-mission" %}
+  {% when "community" %}{% render "pg-community" %}
+  {% when "about" %}{% render "pg-about" %}
+  {% when "lookbook" %}{% render "pg-lookbook" %}
+  {% when "contact" %}{% render "pg-contact" %}
+  {% when "contact-1" %}{% render "pg-contact" %}
+  {% when "faq" %}{% render "pg-faq" %}
+  {% when "size-guide" %}{% render "pg-size-guide" %}
+  {% when "accessibility" %}{% render "pg-accessibility" %}
+  {% when "gift-card" %}{% render "pg-gift-card" %}
+  {% when "cookie-policy" %}{% render "pg-cookie-policy" %}
+  {% when "terms-of-service" %}{% render "pg-terms-of-service" %}
+  {% when "shipping-returns" %}{% render "pg-shipping-returns" %}
+  {% when "privacy-policy" %}{% render "pg-privacy-policy" %}
+  {% else %}
 <div class="page">
   <div class="page__head">
     <p class="page__kicker">[ STRAY DOG ]</p>
     <h1 class="page__title">{{ page.title }}</h1>
   </div>
-  <div class="prose">
-    {{ page.content }}
-  </div>
+  <div class="prose">{{ page.content }}</div>
 </div>
+{% endcase %}
