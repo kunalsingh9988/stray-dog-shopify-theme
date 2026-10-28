@@ -1,0 +1,14 @@
+<div class="page">
+  <div class="page__head">
+    <p class="page__kicker">[ COLLECTIONS ]</p>
+    <h1 class="page__title">All Collections</h1>
+  </div>
+  <div class="search-grid">
+    {%- for c in collections -%}
+    <div class="p-card"><a class="p-card__well" href="{{ c.url }}"><img width="552" height="690" src="{{ c.featured_image | image_url: width: 522 | default: '' }}" alt="{{ c.title | escape }}"></a><div class="p-card__meta"><a class="p-card__title" href="{{ c.url }}">{{ c.title }}</a><span class="p-card__price">{{ c.products_count }} items</span></div></div>
+    {%- endfor -%}
+  </div>
+  {%- if collections.size == 0 -%}
+  <div class="page--cta" style="justify-content:center"><a class="btn-primary" href="{{ routes.all_products_collection_url }}">Shop all products</a></div>
+  {%- endif -%}
+</div>

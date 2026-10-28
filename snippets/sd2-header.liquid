@@ -1,0 +1,29 @@
+<header class="sd2-header">
+  <div class="announce" data-announce>
+    <a href="{{ routes.all_products_collection_url }}">STRAY DOG FW26 // LAKE EFFECT — FIRST DROP FRIDAY @ 9AM PT&nbsp;&nbsp;·&nbsp;&nbsp;FREE US SHIPPING OVER $75</a>
+    <button class="announce__close" data-announce-close aria-label="Close announcement">&times;</button>
+  </div>
+  <div class="sd2-header__bar">
+    <div class="pill-cluster">
+      <button class="pill pill--menu" data-menu-toggle>Menu</button>
+      <a class="pill nav-hide" href="{{ routes.all_products_collection_url }}">Shop All{% if collections.all.products_count > 0 %} <sup>({{ collections.all.products_count }})</sup>{% endif %}</a>
+      <a class="pill nav-hide" href="{{ routes.all_products_collection_url }}">Collections</a>
+      <a class="pill nav-hide" href="/pages/mission">Mission</a>
+      <a class="pill nav-hide" href="{{ routes.search_url }}">Search</a>
+    </div>
+    <a class="sd2-header__logo" href="/"><img width="636" height="352" src="assets/straydog-logo-black.png" alt="Stray Dog Clothing"></a>
+    <div class="pill-cluster">
+      <a class="pill nav-hide" href="{{ routes.account_login_url }}">Login</a>
+      <a class="pill" href="{{ routes.cart_url }}">Cart <sup data-cart-count>({{ cart.item_count }})</sup></a>
+    </div>
+  </div>
+  <nav class="mobile-menu" data-mobile-menu>
+    <a class="pill" href="{{ routes.all_products_collection_url }}">Shop All{% if collections.all.products_count > 0 %} ({{ collections.all.products_count }}){% endif %}</a>
+    <a class="pill" href="{{ routes.all_products_collection_url }}">Hats</a>
+    <a class="pill" href="{{ routes.all_products_collection_url }}">Shirts</a>
+    <a class="pill" href="{{ routes.all_products_collection_url }}">Collections</a>
+    <a class="pill" href="/pages/mission">Mission</a>
+    <a class="pill" href="{{ routes.search_url }}">Search</a>
+    <a class="pill" href="{{ routes.account_login_url }}">Login</a>
+  </nav>
+</header>

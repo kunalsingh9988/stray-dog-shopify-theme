@@ -1,0 +1,91 @@
+{%- assign pdp_url = collections.all.products.first.url | default: routes.all_products_collection_url -%}
+<!-- COLLECTION HEADER -->
+<section class="drop-head">
+  <h1>{{ collection.title | default: 'FW26 // Lake Effect' }}</h1>
+  <div class="drop-head__dates">
+    <p>{{ collection.products_count }} PRODUCTS</p>
+    <p>DROP 1: FRIDAY, OCT 16TH @ 9AM PT</p>
+    <p>10% OF EVERY ORDER FUNDS RESCUE DOGS</p>
+  </div>
+</section>
+
+<!-- EARLY ACCESS -->
+{%- form 'customer', class: 'early' -%}
+  <input type="hidden" name="contact[tags]" value="newsletter,early-access">
+  <p class="early__label">Early access for newsletter subscribers</p>
+  <input class="early__input" type="email" name="contact[email]" placeholder="Email address" aria-label="Email address" required>
+  <label class="early__check"><input type="checkbox" required> I accept the <a href="/policies/privacy-policy">Privacy Policy</a>*</label>
+  <button class="early__btn" type="submit">Subscribe</button>
+  {%- if form.posted_successfully? -%}<p class="early__done">You're in the pack — watch your inbox.</p>{%- endif -%}
+{%- endform -%}
+
+<!-- REAL PRODUCTS -->
+{%- if collection.products.size > 0 -%}
+<section>
+  <div class="sec-head"><h2>{{ collection.products_count }} in this collection</h2></div>
+  <div class="search-grid" style="padding:24px 16px">
+    {%- for rp in collection.products -%}
+    <div class="p-card"><a class="p-card__well" href="{{ rp.url }}"><img width="552" height="690" src="{{ rp.featured_image | image_url: width: 522 }}" alt="{{ rp.title | escape }}"></a><div class="p-card__meta"><a class="p-card__title" href="{{ rp.url }}">{{ rp.title }}</a><span class="p-card__price">{{ rp.price | money }}</span></div></div>
+    {%- endfor -%}
+  </div>
+</section>
+{%- endif -%}
+
+<!-- LOOKBOOK -->
+<section class="lookbook">
+  <div class="lookbook__full"><img width="1672" height="941" src="{{ 'hero-marina.webp' | asset_url }}" alt="" style="aspect-ratio:900/1125"></div>
+
+  <div class="lookbook__list">
+    {%- for rp in collection.products limit: 5 -%}
+      <a href="{{ rp.url }}">&gt; {{ rp.title }}</a>
+    {%- else -%}
+      <a href="{{ pdp_url }}">&gt; Script Trucker Hat — Gold</a>
+      <a href="{{ pdp_url }}">&gt; Rescue Club Tee — Black</a>
+      <a href="{{ pdp_url }}">&gt; Essential Script Tee — White</a>
+      <a href="{{ pdp_url }}">&gt; Patch Trucker Hat — Black / White</a>
+      <a href="{{ pdp_url }}">&gt; Harbor Badge Tee — Black</a>
+    {%- endfor -%}
+  </div>
+
+  <div class="lookbook__duo">
+    <img width="1672" height="941" src="{{ 'hero-steps.webp' | asset_url }}" alt="">
+    <img width="1672" height="941" src="{{ 'hero-beach.webp' | asset_url }}" alt="">
+  </div>
+
+  <div class="lookbook__duo">
+    <img width="1672" height="941" src="{{ 'hero-sunset.webp' | asset_url }}" alt="">
+    <img width="1672" height="941" src="{{ 'hero-motel.webp' | asset_url }}">
+  </div>
+
+  <div class="lookbook__full"><img width="1672" height="941" src="{{ 'hero-beach.webp' | asset_url }}" alt="" style="aspect-ratio:900/600"></div>
+
+  <div class="lookbook__trio">
+    <img width="552" height="690" src="{{ 'hat-patch-bw.webp' | asset_url }}" alt="">
+    <img width="552" height="690" src="{{ 'tee-script-white.webp' | asset_url }}" alt="">
+    <img width="1254" height="1254" src="{{ 'hat-pink.webp' | asset_url }}" alt="">
+  </div>
+
+  <div class="lookbook__duo">
+    <img width="552" height="690" src="{{ 'tee-dog-black.webp' | asset_url }}" alt="">
+    <img width="552" height="690" src="{{ 'tee-script-burgundy.webp' | asset_url }}" alt="">
+  </div>
+
+  <div class="lookbook__duo">
+    <img width="552" height="690" src="{{ 'hat-script-gold.webp' | asset_url }}" alt="">
+    <img width="552" height="690" src="{{ 'tee-badge-black.webp' | asset_url }}" alt="">
+  </div>
+
+  <div class="lookbook__full"><img width="1672" height="941" src="{{ 'hero-sunset.webp' | asset_url }}" alt="" style="aspect-ratio:900/1125"></div>
+
+  <div class="lookbook__list">
+    <a>&gt; Photography: @straydogpack</a>
+    <a>&gt; Talent: the pack — our customers &amp; their rescues</a>
+    <a>&gt; Location: the lake, obviously</a>
+    <a>&gt; 10% of every order funds rescue dogs</a>
+  </div>
+</section>
+
+<button class="btt" data-btt>
+  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 12V2M2.5 6.5 7 2l4.5 4.5"/></svg>
+  Back to top
+</button>

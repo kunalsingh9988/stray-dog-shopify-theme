@@ -1,25 +1,30 @@
-<div class="page-wrap" style="max-width:480px;">
-  <h1>{{ 'customer.login_page.title' | t }}</h1>
-  {%- form 'customer_login' -%}
-    {{ form.errors | default_errors }}
-    <div style="display:flex;flex-direction:column;gap:14px;">
-      <input type="email" name="customer[email]" placeholder="{{ 'customer.login_page.email' | t }}" required style="height:44px;border:1px solid var(--sd-text);padding:0 14px;">
-      <input type="password" name="customer[password]" placeholder="{{ 'customer.login_page.password' | t }}" required style="height:44px;border:1px solid var(--sd-text);padding:0 14px;">
-      <button class="btn btn--full" type="submit">{{ 'customer.login_page.sign_in' | t }}</button>
-      <div style="display:flex;justify-content:space-between;">
-        <a class="t-link link-underline" href="#recover" onclick="document.getElementById('recover').style.display='block';this.style.display='none';return false;">{{ 'customer.login_page.forgot_password' | t }}</a>
-        <a class="t-link link-underline" href="{{ routes.account_register_url }}">{{ 'customer.login_page.create_account' | t }}</a>
-      </div>
-    </div>
-  {%- endform -%}
-  <div id="recover" style="display:none;margin-top:22px;">
-    {%- form 'recover_customer_password' -%}
+<div class="page">
+  <div class="page__head">
+    <p class="page__kicker">[ CUSTOMER ]</p>
+    <h1 class="page__title">Account</h1>
+  </div>
+  <div class="auth">
+    {%- form 'customer_login', class: 'form-grid' -%}
+      <h2 class="auth__title">Sign in</h2>
       {{ form.errors | default_errors }}
-      {%- if form.posted_successfully? -%}<p class="form-success">Check your email for a reset link.</p>{%- endif -%}
-      <div style="display:flex;flex-direction:column;gap:14px;">
-        <input type="email" name="email" placeholder="{{ 'customer.login_page.email' | t }}" required style="height:44px;border:1px solid var(--sd-text);padding:0 14px;">
-        <button class="btn btn--full" type="submit">Reset password</button>
-      </div>
+      <div class="field"><label for="li-email">Email</label><input id="li-email" name="customer[email]" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="li-pass">Password</label><input id="li-pass" name="customer[password]" type="password" required autocomplete="current-password"></div>
+      <button class="btn-primary" type="submit">Sign in</button>
+      <a class="pill" href="#recover" onclick="document.getElementById('recover').style.display='grid';this.style.display='none';return false">Forgot password?</a>
+    {%- endform -%}
+    {%- form 'create_customer', class: 'form-grid' -%}
+      <h2 class="auth__title">Create account</h2>
+      {{ form.errors | default_errors }}
+      <div class="field"><label for="ca-name">Name</label><input id="ca-name" name="customer[first_name]" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="ca-email">Email</label><input id="ca-email" name="customer[email]" type="email" required autocomplete="email"></div>
+      <div class="field"><label for="ca-pass">Password</label><input id="ca-pass" name="customer[password]" type="password" required autocomplete="new-password"></div>
+      <button class="btn-primary" type="submit">Join the pack</button>
+      <p class="mono" style="font-size:12px">Order history · faster checkout · early drop access</p>
+    {%- endform -%}
+    {%- form 'recover_customer_password', class: 'form-grid', id: 'recover', style: 'display:none' -%}
+      <h2 class="auth__title">Reset password</h2>
+      <div class="field"><label for="rc-email">Email</label><input id="rc-email" name="email" type="email" required autocomplete="email"></div>
+      <button class="btn-primary" type="submit">Send reset link</button>
     {%- endform -%}
   </div>
 </div>

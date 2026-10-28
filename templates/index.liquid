@@ -1,0 +1,96 @@
+{% assign pdp_url = collections.all.products.first.url | default: routes.all_products_collection_url %}
+
+  <!-- HERO 1 -->
+  <section class="hero hero--fade-strong">
+    <div class="hero__bg"><img width="1672" height="941" src="assets/hero-beach.webp" alt=""></div>
+    <div class="hero__content">
+      <p class="hero__kicker">[ DROP 001 / THE PACK ]</p>
+      <h2 class="hero__title">FW26 // Lake Effect</h2>
+      <div class="hero__actions"><a class="btn-ghost" href="{{ routes.all_products_collection_url }}">Preview</a></div>
+    </div>
+  </section>
+
+  <!-- HERO 2 -->
+  <section class="hero hero--fade-soft">
+    <div class="hero__bg"><img width="1672" height="941" src="assets/hero-marina.webp" alt=""></div>
+    <div class="hero__content">
+      <h2 class="hero__title">Stray Dog — Headwear / 001</h2>
+      <div class="hero__actions">
+        <a class="btn-ghost" href="{{ routes.all_products_collection_url }}">Shop</a>
+        <a class="btn-ghost" href="/pages/mission">Mission</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOPPABLE LOOK -->
+  <section class="look">
+    <div class="look__grid">
+      <div class="look__media">
+        <img width="1672" height="941" src="assets/hero-motel.webp" alt="Stray Dog look — motel dock">
+        <a class="hotspot" style="left:34%;top:33%" href="{{ pdp_url }}" aria-label="Shop hat"></a>
+        <a class="hotspot" style="left:58%;top:70%" href="{{ pdp_url }}" aria-label="Shop tee"></a>
+        <a class="hotspot" style="left:32%;top:92%" href="{{ pdp_url }}" aria-label="Shop more"></a>
+      </div>
+      <div class="look__list">
+        <a class="mini-card" href="{{ pdp_url }}">
+          <img width="552" height="690" src="assets/hat-script-gold.webp" alt="">
+          <span><span class="mini-card__name">Script Trucker Hat — Gold</span><span class="mini-card__price">$40.00</span></span>
+        </a>
+        <a class="mini-card" href="{{ pdp_url }}">
+          <img width="552" height="690" src="assets/tee-dog-black.webp" alt="">
+          <span><span class="mini-card__name">Rescue Club Tee — Black</span><span class="mini-card__price">$38.00</span></span>
+        </a>
+        <a class="mini-card" href="{{ pdp_url }}">
+          <img width="552" height="690" src="assets/hat-patch-bw.webp" alt="">
+          <span><span class="mini-card__name">Patch Trucker Hat — Black / White</span><span class="mini-card__price">$38.00</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW IN + RESTOCKS -->
+  <section>
+    <div class="sec-head"><h2>New In + Restocks</h2></div>
+    <div class="p-track">
+      <div class="p-card"><a class="p-card__well" href="{{ pdp_url }}"><img width="552" height="690" src="assets/hat-script-gold.webp" alt=""></a><span class="badge-new">New</span><div class="p-card__meta"><a class="p-card__title" href="{{ pdp_url }}">Script Trucker Hat — Gold</a><span class="p-card__price">$40.00</span></div></div>
+      <div class="p-card"><a class="p-card__well" href="{{ pdp_url }}"><img width="552" height="690" src="assets/hat-script-pink.webp" alt=""></a><span class="badge-new">New</span><div class="p-card__meta"><a class="p-card__title" href="{{ pdp_url }}">Script Trucker Hat — Pink Stitch</a><span class="p-card__price">$40.00</span></div></div>
+      <div class="p-card"><a class="p-card__well" href="{{ pdp_url }}"><img width="552" height="690" src="assets/tee-script-white.webp" alt=""></a><span class="badge-new">New</span><div class="p-card__meta"><a class="p-card__title" href="{{ pdp_url }}">Essential Script Tee — White</a><span class="p-card__price">$36.00</span></div></div>
+      <div class="p-card"><a class="p-card__well" href="{{ pdp_url }}"><img width="552" height="690" src="assets/tee-dog-black.webp" alt=""></a><span class="badge-new">New</span><div class="p-card__meta"><a class="p-card__title" href="{{ pdp_url }}">Rescue Club Tee — Black</a><span class="p-card__price">$38.00</span></div></div>
+      <div class="p-card"><a class="p-card__well" href="{{ pdp_url }}"><img width="1254" height="1254" src="assets/hat-pink.webp" alt=""></a><div class="p-card__meta"><a class="p-card__title" href="{{ pdp_url }}">Neon Trucker Hat — Hot Pink</a><span class="p-card__price">$42.00</span></div></div>
+      <div class="p-card"><a class="p-card__well" href="{{ pdp_url }}"><img width="552" height="690" src="assets/tee-badge-black.webp" alt=""></a><div class="p-card__meta"><a class="p-card__title" href="{{ pdp_url }}">Harbor Badge Tee — Black</a><span class="p-card__price">$38.00</span></div></div>
+      <div class="p-card"><a class="p-card__well" href="{{ pdp_url }}"><img width="552" height="690" src="assets/hat-patch-bw.webp" alt=""></a><div class="p-card__meta"><a class="p-card__title" href="{{ pdp_url }}">Patch Trucker Hat — Black / White</a><span class="p-card__price">$38.00</span></div></div>
+      <div class="p-card"><a class="p-card__well" href="{{ pdp_url }}"><img width="552" height="690" src="assets/tee-script-black.webp" alt=""></a><div class="p-card__meta"><a class="p-card__title" href="{{ pdp_url }}">Essential Script Tee — Black</a><span class="p-card__price">$36.00</span></div></div>
+      <div class="p-card"><a class="p-card__well" href="{{ pdp_url }}"><img width="552" height="690" src="assets/tee-script-burgundy.webp" alt=""></a><div class="p-card__meta"><a class="p-card__title" href="{{ pdp_url }}">Essential Script Tee — Burgundy</a><span class="p-card__price">$36.00</span></div></div>
+      <div class="p-card"><a class="p-card__well" href="{{ pdp_url }}"><img width="552" height="690" src="assets/tee-script-cream.webp" alt=""></a><div class="p-card__meta"><a class="p-card__title" href="{{ pdp_url }}">Essential Script Tee — Cream</a><span class="p-card__price">$34.00</span></div></div>
+    </div>
+  </section>
+
+  <!-- SPLIT IMAGES -->
+  <section class="duo">
+    <a href="{{ routes.all_products_collection_url }}"><img width="1672" height="941" src="assets/hero-steps.webp" alt=""><span class="duo__tag btn-ghost">Shop Hats</span></a>
+    <a href="{{ routes.all_products_collection_url }}"><img width="1672" height="941" src="assets/hero-sunset.webp" alt=""><span class="duo__tag btn-ghost">Shop Shirts</span></a>
+  </section>
+
+  <!-- FEATURED COLLECTIONS -->
+  <section>
+    <div class="sec-head"><h2>Featured Collections</h2></div>
+    <div class="p-track">
+      <a class="c-card" href="{{ routes.all_products_collection_url }}"><div class="c-card__well"><img width="552" height="690" src="assets/hat-script-pink.webp" alt=""></div><p class="c-card__title">Headwear / 001</p></a>
+      <a class="c-card" href="{{ routes.all_products_collection_url }}"><div class="c-card__well"><img width="552" height="690" src="assets/tee-script-burgundy.webp" alt=""></div><p class="c-card__title">Apparel / 002</p></a>
+      <a class="c-card" href="{{ routes.all_products_collection_url }}"><div class="c-card__well"><img width="1672" height="941" src="assets/hero-beach.webp" alt=""></div><p class="c-card__title">New Arrivals</p></a>
+      <a class="c-card" href="{{ routes.all_products_collection_url }}"><div class="c-card__well"><img width="1672" height="941" src="assets/hero-motel.webp" alt=""></div><p class="c-card__title">Coming Soon</p></a>
+      <a class="c-card" href="/pages/mission"><div class="c-card__well"><img width="1672" height="941" src="assets/hero-marina.webp" alt=""></div><p class="c-card__title">The Mission</p></a>
+      <a class="c-card" href="/pages/community"><div class="c-card__well"><img width="1672" height="941" src="assets/hero-steps.webp" alt=""></div><p class="c-card__title">Community</p></a>
+    </div>
+  </section>
+
+  <!-- SPLIT IMAGES 2 -->
+  <section class="duo">
+    <div class="duo__cell"><img width="1672" height="941" src="assets/hero-beach.webp" alt=""></div>
+    <div class="duo__cell"><img width="1672" height="941" src="assets/hero-marina.webp" alt=""></div>
+  </section>
+
+  <button class="btt" data-btt>
+    <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 12V2M2.5 6.5 7 2l4.5 4.5"/></svg>
+    Back to top
+  </button>

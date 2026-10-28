@@ -1,0 +1,32 @@
+<div class="page">
+  <div class="page__head">
+    <p class="page__kicker">[ FIND YOURS ]</p>
+    <h1 class="page__title">Search</h1>
+  </div>
+  <div class="search-bar">
+    <form action="{{ routes.search_url }}" method="get" role="search" style="display:flex;gap:8px;width:100%">
+      <input type="hidden" name="type" value="product">
+      <input class="sub-input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search hats, tees, colors…" aria-label="Search products">
+      <button class="btn-primary" type="submit">Search</button>
+    </form>
+  </div>
+  {%- if search.performed -%}
+    <p class="mono search-count">{{ search.results_count }} result{% unless search.results_count == 1 %}s{% endunless %} — "{{ search.terms }}"</p>
+    <div class="search-grid">
+      {%- for item in search.results -%}
+        {%- if item.object_type == 'product' -%}
+        <div class="p-card"><a class="p-card__well" href="{{ item.url }}"><img width="552" height="690" src="{{ item.featured_image | image_url: width: 522 }}" alt="{{ item.title | escape }}"></a><div class="p-card__meta"><a class="p-card__title" href="{{ item.url }}">{{ item.title }}</a><span class="p-card__price">{{ item.price | money }}</span></div></div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    {%- if search.results_count == 0 -%}
+      <p class="cart__empty">Nothing found — try "trucker", "tee", or a color.</p>
+    {%- endif -%}
+  {%- else -%}
+    <div class="search-grid">
+      {%- for rp in collections.all.products limit: 10 -%}
+      <div class="p-card"><a class="p-card__well" href="{{ rp.url }}"><img width="552" height="690" src="{{ rp.featured_image | image_url: width: 522 }}" alt="{{ rp.title | escape }}"></a><div class="p-card__meta"><a class="p-card__title" href="{{ rp.url }}">{{ rp.title }}</a><span class="p-card__price">{{ rp.price | money }}</span></div></div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>

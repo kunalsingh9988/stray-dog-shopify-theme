@@ -1,0 +1,112 @@
+{%- assign p = product -%}
+{%- assign v = product.selected_or_first_available_variant -%}
+<div class="pdp">
+  <!-- LEFT: info -->
+  <div class="pdp__left">
+    <div class="pdp__info">
+      <p class="pdp__price" data-pdp-price>{{ v.price | money }} {{ shop.currency }}</p>
+      <h1 class="pdp__title">{{ p.title }}</h1>
+    </div>
+    <div class="pdp__acc">
+      {%- if p.description != blank -%}
+      <details open>
+        <summary>Details <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m1 1.5 5 5 5-5"/></svg></summary>
+        <div class="acc-body">{{ p.description | newline_to_br }}</div>
+      </details>
+      {%- endif -%}
+      <details>
+        <summary>Specs <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m1 1.5 5 5 5-5"/></svg></summary>
+        <div class="acc-body">{% for option in p.options_with_values %}{{ option.name }}: {{ option.values | join: ' / ' }}
+{% endfor %}
+10% of every order funds rescue dogs.</div>
+      </details>
+      <details>
+        <summary>Shipping &amp; Returns <svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m1 1.5 5 5 5-5"/></svg></summary>
+        <div class="acc-body">Ships in 1–2 business days from our Pacific NW studio.
+
+Free US shipping over $75. 30-day returns, no questions — even if your dog chewed the tag.</div>
+      </details>
+    </div>
+  </div>
+
+  <!-- MIDDLE: gallery -->
+  <div class="pdp__gallery-wrap">
+    <div class="pdp__gallery" data-gallery>
+      {%- if p.images.size > 0 -%}
+        {%- for img in p.images -%}
+        <div class="pdp__img"><img width="552" height="690" src="{{ img | image_url: width: 1104 }}" alt="{{ img.alt | default: p.title | escape }}"></div>
+        {%- endfor -%}
+      {%- else -%}
+        <div class="pdp__img"><img width="552" height="690" src="{{ 'hat-script-gold.webp' | asset_url }}" alt="{{ p.title | escape }}"></div>
+      {%- endif -%}
+    </div>
+    {%- if p.images.size > 1 -%}
+    <div class="pdp__thumbs">
+      <div class="pdp__thumbs-inner" data-thumbs>
+        {%- for img in p.images limit: 8 -%}
+        <button class="pdp__thumb{% if forloop.first %} active{% endif %}"><img width="552" height="690" src="{{ img | image_url: width: 110 }}" alt=""></button>
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- endif -%}
+  </div>
+
+  <!-- RIGHT: buy -->
+  <div class="pdp__buy">
+    {%- form 'product', p -%}
+    <input type="hidden" name="id" value="{{ v.id }}" data-variant-id>
+    {%- assign img_variants = product.variants | where: 'featured_image' -%}
+    {%- if img_variants.size > 1 -%}
+    <div>
+      <h3>Variations</h3>
+      <div class="vars">
+        {%- for var in img_variants limit: 6 -%}
+        <a href="#" data-direct-pick="{{ var.id }}" data-price="{{ var.price | money }}"{% if var.id == v.id %} class="active"{% endif %}><img width="552" height="690" src="{{ var.featured_image | image_url: width: 102 }}" alt="{{ var.title | escape }}"></a>
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- endif -%}
+    {%- for option in p.options_with_values -%}
+    <div>
+      <h3>{{ option.name }}</h3>
+      <div class="sizes" data-option-group="{{ option.name | escape }}">
+        {%- for val in option.values -%}
+        <button type="button" class="size-pill{% if option.selected_value == val %} active{% endif %}" data-variant-pick data-value="{{ val | escape }}">{{ val }}</button>
+        {%- endfor -%}
+      </div>
+    </div>
+    {%- endfor -%}
+    <div class="buybar">
+      <div class="qty" data-qty>
+        <button type="button" data-qty-minus aria-label="Decrease quantity">−</button>
+        <input type="number" name="quantity" value="1" min="1" aria-label="Quantity">
+        <button type="button" data-qty-plus aria-label="Increase quantity">+</button>
+      </div>
+      <button class="atc" type="submit" data-pdp-atc {% unless v.available %}disabled{% endunless %}>
+        <span>Add to cart</span>
+        <span>{% if v.available %}{{ v.price | money }}{% else %}Sold out{% endif %}</span>
+      </button>
+    </div>
+    {%- endform -%}
+  </div>
+</div>
+
+<script type="application/json" data-variants-json>
+[{% for var in product.variants %}{"id":{{ var.id }},"options":{{ var.options | json }},"price":{{ var.price | money | json }},"available":{{ var.available }}}{% unless forloop.last %},{% endunless %}{% endfor %}]
+</script>
+
+<!-- RECOMMENDED -->
+{%- assign related = p.collections.first.products | default: collections.all.products -%}
+<section class="recs">
+  <div class="sec-head--split">
+    <h2 class="h-display" style="font-size:clamp(30px,3.6vw,54px)">Recommended products</h2>
+    <a class="pill" href="{{ routes.all_products_collection_url }}" style="background:var(--pill)">Discover more</a>
+  </div>
+  <div class="recs__grid">
+    {%- for rp in related limit: 6 -%}
+      {%- if rp.id != p.id -%}
+      <div class="p-card"><a class="p-card__well" href="{{ rp.url }}"><img width="552" height="690" src="{{ rp.featured_image | image_url: width: 522 }}" alt="{{ rp.title | escape }}"></a><div class="p-card__meta"><a class="p-card__title" href="{{ rp.url }}">{{ rp.title }}</a><span class="p-card__price">{{ rp.price | money }}</span></div></div>
+      {%- endif -%}
+    {%- endfor -%}
+  </div>
+</section>

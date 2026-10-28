@@ -1,0 +1,43 @@
+<div class="page">
+  <div class="page__head">
+    <p class="page__kicker">[ YOUR PILE ]</p>
+    <h1 class="page__title">Cart</h1>
+  </div>
+  <div data-cart-page>
+    {%- if cart.item_count == 0 -%}
+      <p class="cart__empty">Your pile is empty — the drop is waiting.</p>
+      <a class="btn-primary" href="{{ routes.all_products_collection_url }}">Shop the drop</a>
+    {%- else -%}
+      <form action="{{ routes.cart_url }}" method="post">
+        {%- for item in cart.items -%}
+        <div class="cart-item">
+          {%- if item.image -%}
+          <a href="{{ item.url }}"><img width="552" height="690" class="cart-item__img" src="{{ item.image | image_url: width: 192 }}" alt="{{ item.title | escape }}"></a>
+          {%- else -%}
+          <div class="cart-item__img"></div>
+          {%- endif -%}
+          <div>
+            <p class="cart-item__name"><a href="{{ item.url }}">{{ item.product.title }}</a></p>
+            {%- unless item.variant.title contains 'Default' -%}<p class="cart-item__price">{{ item.variant.title }}</p>{%- endunless -%}
+            <p class="cart-item__price">{{ item.final_price | money }} each</p>
+          </div>
+          <div class="cart-item__side">
+            <span class="cart-qty">
+              <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" aria-label="Quantity for {{ item.title | escape }}" style="width:56px;height:34px;text-align:center;border:0;font-family:var(--font-mono);font-size:13px;background:transparent">
+            </span>
+            <a class="cart-remove" href="{{ item.url_to_remove }}">Remove</a>
+          </div>
+        </div>
+        {%- endfor -%}
+        <div class="cart__summary">
+          <span class="cart__total">Subtotal — {{ cart.total_price | money }}</span>
+          <span style="display:flex;gap:10px">
+            <button class="pill" type="submit" name="update" style="background:var(--pill);height:56px;padding:0 20px">Update</button>
+            <button class="btn-primary" type="submit" name="checkout">Checkout — {{ cart.total_price | money }}</button>
+          </span>
+        </div>
+        <p class="mono" style="font-size:11px;padding-top:10px;text-align:right">10% OF EVERY ORDER FUNDS RESCUE DOGS</p>
+      </form>
+    {%- endif -%}
+  </div>
+</div>
