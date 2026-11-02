@@ -1,27 +1,39 @@
-{% assign pdp_url = collections.all.products.first.url | default: routes.all_products_collection_url %}
-
-
-  <div class="page">
-    <div class="page__head">
-      <p class="page__kicker">[ FOR THE STRAY IN YOUR LIFE ]</p>
-      <h1 class="page__title">Gift Card</h1>
-      <p class="page__sub">Delivered by email · never expires · funds rescue dogs like everything else.</p>
-    </div>
-    <div class="gift">
-      <div class="gift__well"><img width="636" height="352" src="{{ 'straydog-logo-white.png' | asset_url }}" alt="Stray Dog gift card"></div>
-      <div class="gift__panel">
+<div class="page">
+  <div class="page__head">
+    <p class="page__kicker">[ FOR THE STRAY IN YOUR LIFE ]</p>
+    <h1 class="page__title">Gift Card</h1>
+    <p class="page__sub">Delivered by email · never expires · funds rescue dogs like everything else.</p>
+  </div>
+  <div class="gift">
+    <div class="gift__well"><img width="636" height="352" src="{{ 'straydog-logo-white.png' | asset_url }}" alt="Stray Dog gift card"></div>
+    <div class="gift__panel">
+      {%- assign gift = all_products['gift-card'] -%}
+      {%- if gift != blank -%}
+        {%- form 'product', gift -%}
+          <input type="hidden" name="id" value="{{ gift.selected_or_first_available_variant.id }}" data-variant-id>
+          <div>
+            <h3>Amount</h3>
+            <div class="sizes">
+              {%- for var in gift.variants -%}
+                <button type="button" class="size-pill{% if forloop.first %} active{% endif %}" data-direct-pick="{{ var.id }}" data-price="{{ var.price | money }}">{{ var.title | replace: '.00','' }}</button>
+              {%- endfor -%}
+            </div>
+          </div>
+          <button class="atc" type="submit" style="margin-top:20px"><span>Add gift card</span><span>{{ gift.selected_or_first_available_variant.price | money }}</span></button>
+        {%- endform -%}
+      {%- else -%}
         <div>
           <h3>Amount</h3>
           <div class="sizes" data-gift-amounts>
-            <button class="size-pill active" data-amt="25">$25</button>
-            <button class="size-pill" data-amt="50">$50</button>
-            <button class="size-pill" data-amt="75">$75</button>
-            <button class="size-pill" data-amt="100">$100</button>
+            <button type="button" class="size-pill active" data-amt="25">$25</button>
+            <button type="button" class="size-pill" data-amt="50">$50</button>
+            <button type="button" class="size-pill" data-amt="75">$75</button>
+            <button type="button" class="size-pill" data-amt="100">$100</button>
           </div>
         </div>
-        <button class="atc" data-gift-atc><span>Add gift card</span><span data-gift-price>$25.00</span></button>
-        <p class="mono" style="font-size:12px;line-height:1.7">Digital only — code lands in the inbox seconds after checkout. Works on every product, combines with shipping discounts, never expires.</p>
-      </div>
+        <a class="atc" href="/pages/contact" style="text-decoration:none"><span>Gift cards coming soon</span><span data-gift-price>$25.00</span></a>
+      {%- endif -%}
+      <p class="mono" style="font-size:12px;line-height:1.7">Digital only — code lands in the inbox seconds after checkout. Works on every product, combines with shipping discounts, never expires.</p>
     </div>
   </div>
-
+</div>

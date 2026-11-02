@@ -100,6 +100,16 @@
     });
   }
 
+  /* ---- Gift card amount pills (no gift-card product yet) ---- */
+  document.querySelectorAll("[data-gift-amounts] .size-pill").forEach(function (p) {
+    p.addEventListener("click", function () {
+      document.querySelectorAll("[data-gift-amounts] .size-pill").forEach(function (x) { x.classList.remove("active"); });
+      p.classList.add("active");
+      var priceEl = document.querySelector("[data-gift-price]");
+      if (priceEl) priceEl.textContent = "$" + (parseInt(p.getAttribute("data-amt"), 10) || 25) + ".00";
+    });
+  });
+
   /* ---- PDP: real variant picker ----
      [data-variant-pick] sets the hidden variant id + active state;
      [data-option-group] pills pick option values and re-resolve the variant. */

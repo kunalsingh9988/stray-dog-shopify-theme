@@ -1,11 +1,13 @@
-<div class="page-wrap" style="max-width:480px;">
-  <h1>Activate account</h1>
-  {%- form 'activate_customer_password' -%}
+<div class="page">
+  <div class="page__head">
+    <p class="page__kicker">[ CUSTOMER ]</p>
+    <h1 class="page__title">Activate account</h1>
+    <p class="page__sub">Set your password to join the pack.</p>
+  </div>
+  {%- form 'activate_customer_password', class: 'form-grid', style: 'margin:0 auto' -%}
     {{ form.errors | default_errors }}
-    <div style="display:flex;flex-direction:column;gap:14px;">
-      <input type="password" name="customer[password]" placeholder="Password" required style="height:44px;border:1px solid var(--sd-text);padding:0 14px;">
-      <input type="password" name="customer[password_confirmation]" placeholder="Confirm password" required style="height:44px;border:1px solid var(--sd-text);padding:0 14px;">
-      <button class="btn btn--full" type="submit">Activate</button>
-    </div>
+    <div class="field"><label for="ac-pass">Password</label><input id="ac-pass" name="customer[password]" type="password" required autocomplete="new-password"></div>
+    <div class="field"><label for="ac-pass2">Confirm password</label><input id="ac-pass2" name="customer[password_confirmation]" type="password" required autocomplete="new-password"></div>
+    <button class="btn-primary" type="submit">Activate account</button>
   {%- endform -%}
 </div>

@@ -1,16 +1,21 @@
-<div class="page-wrap">
-  <h1>Order {{ order.name }}</h1>
-  <p class="t-small" style="color:var(--sd-text-muted);">Placed {{ order.created_at | date: '%B %d, %Y' }}</p>
-  {%- for line in order.line_items -%}
-    <div class="cart-line" style="grid-template-columns:84px 1fr auto;">
-      <a href="{{ line.url }}">{%- if line.image -%}<img src="{{ line.image | image_url: width: 168 }}" alt="{{ line.title | escape }}" style="width:84px;height:84px;" width="168" height="168">{%- endif -%}</a>
-      <div>
-        <span class="cart-line__title">{{ line.title }}</span>
-        <div class="cart-line__meta">Qty {{ line.quantity }}</div>
-      </div>
-      <div class="cart-line__price">{{ line.final_line_price | money }}</div>
+<div class="page">
+  <div class="page__head">
+    <p class="page__kicker">[ CUSTOMER ]</p>
+    <h1 class="page__title">Order {{ order.name }}</h1>
+    <p class="page__sub">Placed {{ order.created_at | date: '%B %d, %Y' }} · {{ order.financial_status_label }} · {{ order.fulfillment_status_label }}</p>
+  </div>
+  <div data-cart-page style="max-width:820px;margin:0 auto">
+    {%- for line in order.line_items -%}
+    <div class="cart-item">
+      {%- if line.image -%}<img class="cart-item__img" width="552" height="690" src="{{ line.image | image_url: width: 192 }}" alt="{{ line.title | escape }}">{%- endif -%}
+      <div><p class="cart-item__name">{{ line.title }}</p>
+      <p class="cart-item__price">{{ line.final_price | money }} × {{ line.quantity }}</p></div>
+      <div class="cart-item__side"><span class="cart-item__name">{{ line.final_line_price | money }}</span></div>
     </div>
-  {%- endfor -%}
-  <div class="cart-summary"><div class="subtotal"><span>Total</span><span>{{ order.total_price | money }}</span></div></div>
-  <a class="t-link link-underline" href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
+    {%- endfor -%}
+    <div class="cart__summary">
+      <span class="cart__total">Total — {{ order.total_price | money }}</span>
+      <a class="pill" href="{{ routes.account_url }}" style="background:var(--pill)">Back to account</a>
+    </div>
+  </div>
 </div>

@@ -1,10 +1,23 @@
-<div class="page-wrap">
-  <h1>Addresses</h1>
-  {%- for address in customer.addresses -%}
-    <div style="border:1px solid var(--sd-border);padding:18px;margin-bottom:14px;">
-      <p class="t-small">{{ address | format_address }}</p>
-      {%- if address == customer.default_address -%}<p class="t-label" style="margin-top:8px;">Default</p>{%- endif -%}
-    </div>
-  {%- endfor -%}
-  <a class="t-link link-underline" href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
+<div class="page">
+  <div class="page__head">
+    <p class="page__kicker">[ CUSTOMER ]</p>
+    <h1 class="page__title">Addresses</h1>
+  </div>
+  <div class="acc">
+    {%- for address in customer.addresses -%}
+    <details>
+      <summary>{{ address.address1 }}{% if address == customer.default_address %} — default{% endif %}<svg viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m1 1.5 5 5 5-5"/></svg></summary>
+      <div class="acc-body">{{ address | format_address }}
+        {%- form 'customer_address', address -%}
+          <button type="submit" data-method="delete" class="cart-remove" style="margin-top:8px">Delete</button>
+        {%- endform -%}
+      </div>
+    </details>
+    {%- else -%}
+    <p class="cart__empty" style="text-align:left">No saved addresses.</p>
+    {%- endfor -%}
+  </div>
+  <div class="page--cta" style="justify-content:flex-start">
+    <a class="pill" href="{{ routes.account_url }}" style="background:var(--pill)">← Back to account</a>
+  </div>
 </div>
