@@ -517,7 +517,17 @@ iframe#nl-badge-frame, iframe#nl-hud-frame, iframe[id^="nl-"][id$="-frame"] { di
   letter-spacing: -.02em; margin: 36px 0 10px;
 }
 .prose h2:first-child { margin-top: 0; }
+.prose h3, .prose h4 {
+  font-family: var(--font-display); font-weight: 800;
+  font-size: clamp(18px, 2.4vw, 24px); text-transform: uppercase;
+  letter-spacing: -.02em; margin: 28px 0 8px;
+}
+.prose ul, .prose ol { margin: 0 0 14px; padding-left: 22px; }
+.prose li { margin: 0 0 6px; }
+.prose strong { font-weight: 700; }
+.prose a { color: var(--vermilion); text-decoration: underline; text-underline-offset: 2px; }
 .prose p { margin: 0 0 14px; }
+.page--policy { padding-top: 72px; padding-bottom: 120px; }
 .mono-list { list-style: none; font-family: var(--font-mono); font-size: 13px; line-height: 2; margin: 0 0 14px; }
 .mono-block { font-family: var(--font-mono); font-size: 13px; line-height: 1.8; white-space: pre-line; }
 .hero--short { height: min(560px, 62vh); }

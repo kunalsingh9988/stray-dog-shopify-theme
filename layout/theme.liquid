@@ -26,7 +26,26 @@
 {% render 'sd2-header' %}
 
 <main>
+{% if request.path contains '/policies/' %}
+<div class="page page--policy">
+  <div class="page__head">
+    <p class="page__kicker">[ STRAY DOG ]</p>
+    <h1 class="page__title">{{ page_title }}</h1>
+  </div>
+  <div class="prose">
+    {% if request.path contains 'refund-policy' %}{{ shop.refund_policy.body }}
+    {% elsif request.path contains 'privacy-policy' %}{{ shop.privacy_policy.body }}
+    {% elsif request.path contains 'terms-of-service' %}{{ shop.terms_of_service.body }}
+    {% elsif request.path contains 'shipping-policy' %}{{ shop.shipping_policy.body }}
+    {% elsif request.path contains 'legal-notice' %}{{ shop.legal_notice.body }}
+    {% elsif request.path contains 'subscription-policy' %}{{ shop.subscription_policy.body }}
+    {% elsif request.path contains 'contact-information' %}{{ shop.contact_information.body }}
+    {% else %}{{ content_for_layout }}{% endif %}
+  </div>
+</div>
+{% else %}
 {{ content_for_layout }}
+{% endif %}
 </main>
 
 {% render 'sd2-footer' %}
